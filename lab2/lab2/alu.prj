@@ -1,7 +1,0 @@
-verilog work "mux_2to1.v"
-verilog work "full_adder.v"
-verilog work "ripple_carry_adder_4b.v"
-verilog work "mux_4to1.v"
-verilog work "ripple_carry_adder_32b.v"
-verilog work "mux_16to1.v"
-verilog work "alu.v"
