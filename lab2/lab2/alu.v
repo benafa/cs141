@@ -25,24 +25,24 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	
 	//functional blocks
 	//16:1 multiplexer
-	mux_16to1 MUX (.in0(and_out),
-						.in1(or_out),
-						.in2(xor_out),
-						.in3(nor_out),
-						.in4(0),
-						.in5(add_out),
-						.in6(sub_out),
-						.in7(slt_out),
-						.in8(srl_out),
-						.in9(sll_out),
-						.in10(sra_out),
-						.in11(0),
-						.in12(0),
-						.in13(0),
-						.in14(0),
-						.in15(0),
-						.S(op_code),
-						.Z(Z));
+	mux_16to1 #(.N(64)) MUX (.in0(and_out),
+									.in1(or_out),
+									.in2(xor_out),
+									.in3(nor_out),
+									.in4(0),
+									.in5(add_out),
+									.in6(sub_out),
+									.in7(slt_out),
+									.in8(srl_out),
+									.in9(sll_out),
+									.in10(sra_out),
+									.in11(0),
+									.in12(0),
+									.in13(0),
+									.in14(0),
+									.in15(0),
+									.S(op_code),
+									.Z(Z));
 	
 	//logical operations
    assign and_out = X & Y;

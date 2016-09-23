@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.34 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.51 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.34 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.54 secs
  
 --> Reading design: alu.prj
 
@@ -105,19 +105,19 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\mux_2to1.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\mux_2to1.v" into library work
 Parsing module <mux_2to1>.
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\full_adder.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\full_adder.v" into library work
 Parsing module <full_adder>.
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_4b.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_4b.v" into library work
 Parsing module <ripple_carry_adder_4b>.
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\mux_4to1.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\mux_4to1.v" into library work
 Parsing module <mux_4to1>.
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" into library work
 Parsing module <ripple_carry_adder_32b>.
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\mux_16to1.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\mux_16to1.v" into library work
 Parsing module <mux_16to1>.
-Analyzing Verilog file "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\alu.v" into library work
+Analyzing Verilog file "C:\Users\cs141\cs141\lab2\lab2\alu.v" into library work
 Parsing verilog file "alu_defines.v" included at line 12.
 Parsing module <alu>.
 
@@ -127,26 +127,42 @@ Parsing module <alu>.
 
 Elaborating module <alu>.
 
-Elaborating module <mux_16to1>.
+Elaborating module <mux_16to1(N=64)>.
 
-Elaborating module <mux_4to1>.
+Elaborating module <mux_4to1(N=64)>.
 
-Elaborating module <mux_2to1>.
-WARNING:HDLCompiler:413 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\alu.v" Line 52: Result of 32-bit expression is truncated to fit in 1-bit target.
+Elaborating module <mux_2to1(N=64)>.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 28: Size mismatch in connection of port <in0>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 29: Size mismatch in connection of port <in1>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 30: Size mismatch in connection of port <in2>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 31: Size mismatch in connection of port <in3>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 32: Size mismatch in connection of port <in4>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 33: Size mismatch in connection of port <in5>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 34: Size mismatch in connection of port <in6>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 35: Size mismatch in connection of port <in7>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 36: Size mismatch in connection of port <in8>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 37: Size mismatch in connection of port <in9>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 38: Size mismatch in connection of port <in10>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 39: Size mismatch in connection of port <in11>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 40: Size mismatch in connection of port <in12>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 41: Size mismatch in connection of port <in13>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 42: Size mismatch in connection of port <in14>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 43: Size mismatch in connection of port <in15>. Formal port size is 64-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 45: Size mismatch in connection of port <Z>. Formal port size is 64-bit while actual signal size is 32-bit.
 
 Elaborating module <ripple_carry_adder_32b>.
 
 Elaborating module <ripple_carry_adder_4b>.
 
 Elaborating module <full_adder>.
-WARNING:HDLCompiler:634 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\alu.v" Line 24: Net <sub_out[31]> does not have a driver.
+WARNING:HDLCompiler:634 - "C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 24: Net <sub_out[31]> does not have a driver.
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Synthesizing Unit <alu>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\alu.v".
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\alu.v".
 WARNING:Xst:653 - Signal <sub_out> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <slt_out> is used but never assigned. This sourceless signal will be automatically connected to value GND.
 WARNING:Xst:653 - Signal <srl_out> is used but never assigned. This sourceless signal will be automatically connected to value GND.
@@ -156,46 +172,46 @@ WARNING:Xst:653 - Signal <sra_out> is used but never assigned. This sourceless s
 Unit <alu> synthesized.
 
 Synthesizing Unit <mux_16to1>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\mux_16to1.v".
-        Length = 32
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\mux_16to1.v".
+        N = 64
     Summary:
 	no macro.
 Unit <mux_16to1> synthesized.
 
 Synthesizing Unit <mux_4to1>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\mux_4to1.v".
-        Length = 32
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\mux_4to1.v".
+        N = 64
     Summary:
 	no macro.
 Unit <mux_4to1> synthesized.
 
 Synthesizing Unit <mux_2to1>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\mux_2to1.v".
-        Length = 32
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\mux_2to1.v".
+        N = 64
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <mux_2to1> synthesized.
 
 Synthesizing Unit <ripple_carry_adder_32b>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v".
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 26: Output port <Y> of the instance <ADD_4b_0> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 27: Output port <Y> of the instance <ADD_4b_1> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 28: Output port <Y> of the instance <ADD_4b_2> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 29: Output port <Y> of the instance <ADD_4b_3> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 30: Output port <Y> of the instance <ADD_4b_4> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 31: Output port <Y> of the instance <ADD_4b_5> is unconnected or connected to loadless signal.
-INFO:Xst:3210 - "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v" line 32: Output port <Y> of the instance <ADD_4b_6> is unconnected or connected to loadless signal.
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v".
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 26: Output port <Y> of the instance <ADD_4b_0> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 27: Output port <Y> of the instance <ADD_4b_1> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 28: Output port <Y> of the instance <ADD_4b_2> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 29: Output port <Y> of the instance <ADD_4b_3> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 30: Output port <Y> of the instance <ADD_4b_4> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 31: Output port <Y> of the instance <ADD_4b_5> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v" line 32: Output port <Y> of the instance <ADD_4b_6> is unconnected or connected to loadless signal.
     Summary:
 Unit <ripple_carry_adder_32b> synthesized.
 
 Synthesizing Unit <ripple_carry_adder_4b>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_4b.v".
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_4b.v".
     Summary:
 	no macro.
 Unit <ripple_carry_adder_4b> synthesized.
 
 Synthesizing Unit <full_adder>.
-    Related source file is "\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\full_adder.v".
+    Related source file is "C:\Users\cs141\cs141\lab2\lab2\full_adder.v".
     Summary:
 Unit <full_adder> synthesized.
 
@@ -204,7 +220,7 @@ HDL Synthesis Report
 
 Macro Statistics
 # Multiplexers                                         : 15
- 32-bit 2-to-1 multiplexer                             : 15
+ 64-bit 2-to-1 multiplexer                             : 15
 # Xors                                                 : 66
  1-bit xor2                                            : 65
  32-bit xor2                                           : 1
@@ -221,7 +237,7 @@ Advanced HDL Synthesis Report
 
 Macro Statistics
 # Multiplexers                                         : 15
- 32-bit 2-to-1 multiplexer                             : 15
+ 64-bit 2-to-1 multiplexer                             : 15
 # Xors                                                 : 66
  1-bit xor2                                            : 65
  32-bit xor2                                           : 1
@@ -268,17 +284,17 @@ Top Level Output File Name         : alu.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 108
+# BELS                             : 107
 #      GND                         : 1
-#      LUT2                        : 11
+#      LUT2                        : 10
 #      LUT3                        : 10
 #      LUT4                        : 17
 #      LUT5                        : 36
 #      LUT6                        : 32
 #      MUXF7                       : 1
-# IO Buffers                       : 102
+# IO Buffers                       : 101
 #      IBUF                        : 68
-#      OBUF                        : 34
+#      OBUF                        : 33
 
 Device utilization summary:
 ---------------------------
@@ -287,19 +303,19 @@ Selected Device : 6slx45csg324-3
 
 
 Slice Logic Utilization: 
- Number of Slice LUTs:                  106  out of  27288     0%  
-    Number used as Logic:               106  out of  27288     0%  
+ Number of Slice LUTs:                  105  out of  27288     0%  
+    Number used as Logic:               105  out of  27288     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    106
-   Number with an unused Flip Flop:     106  out of    106   100%  
-   Number with an unused LUT:             0  out of    106     0%  
-   Number of fully used LUT-FF pairs:     0  out of    106     0%  
+ Number of LUT Flip Flop pairs used:    105
+   Number with an unused Flip Flop:     105  out of    105   100%  
+   Number with an unused LUT:             0  out of    105     0%  
+   Number of fully used LUT-FF pairs:     0  out of    105     0%  
    Number of unique control sets:         0
 
 IO Utilization: 
  Number of IOs:                         103
- Number of bonded IOBs:                 102  out of    218    46%  
+ Number of bonded IOBs:                 101  out of    218    46%  
 
 Specific Feature Utilization:
 
@@ -342,7 +358,7 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 1367 / 34
+  Total number of paths / destination ports: 1365 / 33
 -------------------------------------------------------------------------
 Delay:               22.624ns (Levels of Logic = 19)
   Source:            X<1> (PAD)
@@ -383,14 +399,14 @@ Cross Clock Domains Report:
 =========================================================================
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.95 secs
+Total REAL time to Xst completion: 27.00 secs
+Total CPU time to Xst completion: 27.05 secs
  
 --> 
 
 Total memory usage is 196340 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    8 (   0 filtered)
+Number of warnings :   24 (   0 filtered)
 Number of infos    :    7 (   0 filtered)
 
