@@ -5,46 +5,49 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="634" delta="new" >"C:\Users\cs141\cs141\lab2\lab2\alu.v" Line 24: Net &lt;<arg fmt="%s" index="1">sub_out[31]</arg>&gt; does not have a driver.
+<msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\alu.v" Line 52: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">1</arg>-bit target.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">sub_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="warning" file="HDLCompiler" num="634" delta="old" >"\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\alu.v" Line 24: Net &lt;<arg fmt="%s" index="1">sub_out[31]</arg>&gt; does not have a driver.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">slt_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">sub_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">srl_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">slt_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">sll_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">srl_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="653" delta="new" >Signal &lt;<arg fmt="%s" index="1">sra_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">sll_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">26</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_0</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">sra_out</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">27</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_1</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">26</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_0</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">28</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_2</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">27</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_1</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">29</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_3</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">28</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_2</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">30</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_4</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">29</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_3</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">31</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_5</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">30</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_4</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">C:\Users\cs141\cs141\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">32</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_6</arg>&gt; is unconnected or connected to loadless signal.
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">31</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_5</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="1989" delta="new" >Unit &lt;<arg fmt="%s" index="1">mux_16to1</arg>&gt;: instances &lt;<arg fmt="%s" index="2">MUX_2</arg>&gt;, &lt;<arg fmt="%s" index="3">MUX_3</arg>&gt; of unit &lt;<arg fmt="%s" index="4">mux_4to1</arg>&gt; are equivalent, second instance is removed
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">\\vmware-host\shared folders\CS141\cs141_git\lab2\lab2\ripple_carry_adder_32b.v</arg>&quot; line <arg fmt="%s" index="2">32</arg>: Output port &lt;<arg fmt="%s" index="3">Y</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADD_4b_6</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="1989" delta="old" >Unit &lt;<arg fmt="%s" index="1">mux_16to1</arg>&gt;: instances &lt;<arg fmt="%s" index="2">MUX_2</arg>&gt;, &lt;<arg fmt="%s" index="3">MUX_3</arg>&gt; of unit &lt;<arg fmt="%s" index="4">mux_4to1</arg>&gt; are equivalent, second instance is removed
 </msg>
 
 </messages>

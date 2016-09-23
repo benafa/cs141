@@ -13,14 +13,15 @@ module mux_16to1(in0,in1,in2,in3,in4,in5,in6,in7,in8,
 					  in9,in10,in11,in12,in13,in14,in15,S,Z);
 
 	//parameter definitions
+	parameter Length = 32;
 
 	//port definitions - customize for different bit widths
-	input  wire [31:0] in0, in1, in2, in3, in4, in5, in6, in7,
+	input  wire [(Length - 1):0] in0, in1, in2, in3, in4, in5, in6, in7,
 									 in8, in9, in10, in11, in12, in13, in14, in15;
 	input  wire [3:0] S;
-	output wire [31:0] Z;
+	output wire [(Length - 1):0] Z;
 
-	wire [31:0] z0,z1,z2,z3;
+	wire [(Length - 1):0] z0,z1,z2,z3;
 	
 	//first level of 4:1 mux
 	mux_4to1 MUX_0 (.A(in0), .B(in1), .C(in2), .D(in3), .S(S[1:0]), .Z(z0));

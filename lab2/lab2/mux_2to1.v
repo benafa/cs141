@@ -12,11 +12,13 @@
 module mux_2to1(X,Y,S,Z);
 
 	//parameter definitions
+	parameter Length = 32;
+
 	
 	//port definitions - customize for different bit widths
-	input wire [31:0] X, Y;
+	input wire [(Length - 1):0] X, Y;
 	input wire S;
-	output wire [31:0] Z;
+	output wire [(Length - 1):0] Z;
 	
 	assign Z = S ? Y : X;
 

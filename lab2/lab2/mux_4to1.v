@@ -12,10 +12,12 @@
 module mux_4to1(A,B,C,D,Z,S);
 
 	//parameter definitions
+	parameter Length = 32;
+
 
 	//port definitions - customize for different bit widths
-	input  wire [31:0] A,B,C,D;
-	output wire [31:0] Z;
+	input  wire [(Length - 1):0] A,B,C,D;
+	output wire [(Length - 1):0] Z;
 	input  wire [1:0] S;
 	
 	wire [31:0] z0,z1;
