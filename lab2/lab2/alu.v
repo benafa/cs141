@@ -25,7 +25,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	
 	//functional blocks
 	//16:1 multiplexer
-	mux_16to1 #(.N(64)) MUX (.in0(and_out),
+	mux_16to1 #(.N(32)) MUX (.in0(and_out),
 									.in1(or_out),
 									.in2(xor_out),
 									.in3(nor_out),
