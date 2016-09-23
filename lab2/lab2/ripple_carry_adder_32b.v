@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module ripple_carry_adder_32b(A,B,S,Overflow);
+module ripple_carry_adder_32b(A,B,S,overflow);
 
 	//parameter definitions
 

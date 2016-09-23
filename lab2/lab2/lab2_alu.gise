@@ -66,14 +66,10 @@
     <transform xil_pn:end_ts="1474598395" xil_pn:in_ck="6538617100081433171" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="4070775498405058007" xil_pn:start_ts="1474598366">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="alu.lso"/>
-      <outfile xil_pn:name="alu.prj"/>
-      <outfile xil_pn:name="alu.syr"/>
-      <outfile xil_pn:name="alu.xst"/>
-      <outfile xil_pn:name="alu_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1474598396" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="3734212952591172" xil_pn:start_ts="1474598395">
       <status xil_pn:value="SuccessfullyRun"/>

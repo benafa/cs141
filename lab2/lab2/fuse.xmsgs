@@ -5,5 +5,62 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 43: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 43: Decimal constant <arg fmt="%s" index="1">10101010101010101010101010101010</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 44: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 44: Decimal constant <arg fmt="%s" index="1">11111111111111111111111111111111</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 45: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 45: Decimal constant <arg fmt="%s" index="1">11111111111111111111111111111111</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 46: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 46: Decimal constant <arg fmt="%s" index="1">10101010101010101010101010101010</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 47: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 47: Decimal constant <arg fmt="%s" index="1">10101010101010101010101010101010</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 48: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 48: Decimal constant <arg fmt="%s" index="1">01010101010101010101010101010101</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 52: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 52: Decimal constant <arg fmt="%s" index="1">10101010101010101010101010101010</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 53: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 53: Decimal constant <arg fmt="%s" index="1">11111111111111111111111111111111</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 54: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="911" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 54: Decimal constant <arg fmt="%s" index="1">11111111111111111111111111111111</arg> is too large, using <arg fmt="%d" index="2">-1</arg> instead
+</msg>
+
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/cs141/cs141/lab2/lab2/test_alu.v" Line 55: Syntax error near &quot;<arg fmt="%s" index="1">b</arg>&quot;.
+</msg>
+
 </messages>
 
