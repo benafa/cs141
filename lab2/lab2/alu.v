@@ -51,7 +51,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	assign nor_out = ~(X | Y);
 	
 	//addition and subtraction
-	ripple_carry_adder_32b ADD (.A(X),.B(Y),.S(add_out),.overflow(overflow));
+	carry_lookahead_adder_32b ADD (.A(X),.B(Y),.C_in(0),.S(add_out),.overflow(overflow));
 	
 	//shifting
 	

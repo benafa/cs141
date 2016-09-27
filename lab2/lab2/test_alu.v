@@ -107,17 +107,31 @@ module test_alu;
 				//only executes when the op code is 0000 (AND)
 				if( Z !== (X & Y) ) begin
 					$display("ERROR: AND:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
-					//error = error + 1;
 				end
 			end
-			// ADD IN YOUR OWN OP CODE CHECKERS HERE!!!
 			`ALU_OP_XOR : begin
+				//only executes when the op code is 0010 (XOR)
+				if( Z !== (X ^ Y) ) begin
+					$display("ERROR: XOR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_OR : begin
+				//only executes when the op code is 0001 (OR)
+				if( Z !== (X | Y) ) begin
+					$display("ERROR: OR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_NOR: begin
+				//only executes when the op code is 0011 (NOR)
+				if( Z !== (~(X | Y)) ) begin
+					$display("ERROR: NOR:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_ADD: begin
+				//only executes when the op code is 0101 (ADD)
+				if( Z !== (X + Y) ) begin
+					$display("ERROR: ADD:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_SUB: begin
 			end
