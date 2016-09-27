@@ -21,7 +21,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	
 	output wire equal, overflow, zero;
 	
-	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out, invert_Y;
+	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out;
 	wire add, sub, not_reserved, overflow_check;
 	
 	//functional blocks
@@ -68,10 +68,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	assign nor_out = ~(or_out);
 	
 	//addition and subtraction
-	//mux controling inversion of Y and C_in
-	mux_2to1 #(.N(32)) ADD_SUB_MUX (.X(Y),.Y(~Y),.S(sub),.Z(invert_Y));
-	//instantiate CLA
-	carry_lookahead_adder_32b ADD_SUB (.A(X),.B(invert_Y),.C_in(sub),.S(add_out),.overflow(overflow_check));
+	add_sub_32b ADD_SUB_UNIT (.X(X),.Y(Y),.sub(sub),.S(add_out),.overflow(overflow_check));
 	assign sub_out = add_out;
 	
 	//shifting
