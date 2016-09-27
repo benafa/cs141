@@ -21,7 +21,8 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	
 	output wire equal, overflow, zero;
 	
-	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out;
+	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out, invert_Y;
+	wire add, sub, not_reserved, overflow_check;
 	
 	//functional blocks
 	//16:1 multiplexer
@@ -43,17 +44,38 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 									.in15(`RESERVED),
 									.S(op_code),
 									.Z(Z));
+									
+	//check if op_code is not reserved
+	assign not_reserved = (~(op_code[2]) & ~(op_code[0])) |
+								 (~(op_code[3]) & op_code[0]) |
+								 (~(op_code[3]) & op_code[1]) |
+								 (op_code[3] & ~(op_code[2]) & ~(op_code[1]));
+	//determine equality and zero
+	assign equal = (&(X ^ ~(Y))) & not_reserved;
+	assign zero = (&(~(Z))) & not_reserved;
+	
+	//check if op_code is add or sub
+	assign add = (~(op_code[3]) & op_code[2] & ~(op_code[1]) & op_code[0]);
+	assign sub = (~(op_code[3]) & op_code[2] & op_code[1] & ~(op_code[0]));
+	
+	//set overflow
+	assign overflow = overflow_check & (add | sub);
 	
 	//logical operations
    assign and_out = X & Y;
 	assign or_out = X | Y;
 	assign xor_out = X ^ Y;
-	assign nor_out = ~(X | Y);
+	assign nor_out = ~(or_out);
 	
 	//addition and subtraction
-	carry_lookahead_adder_32b ADD (.A(X),.B(Y),.C_in(0),.S(add_out),.overflow(overflow));
+	//mux controling inversion of Y and C_in
+	mux_2to1 #(.N(32)) ADD_SUB_MUX (.X(Y),.Y(~Y),.S(sub),.Z(invert_Y));
+	//instantiate CLA
+	carry_lookahead_adder_32b ADD_SUB (.A(X),.B(invert_Y),.C_in(sub),.S(add_out),.overflow(overflow_check));
+	assign sub_out = add_out;
 	
 	//shifting
+	
 	
 
 
