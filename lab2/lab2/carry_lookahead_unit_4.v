@@ -4,17 +4,14 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    carry_lookahead_unit_4
-// Author(s): 
-// Description: 
-//
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Calculates the carry outputs from carry generate and carry propagate
+//					 signals from four adders of an unspecified size.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module carry_lookahead_unit_4(P,G,C_in,Pg,Gg,C);
 
-	//parameter definitions
-
-	//port definitions - customize for different bit widths
-	//calculate C
+	//port definitions
 	input wire [3:0] P, G;
 	input wire C_in;
 	output wire [3:0] C;

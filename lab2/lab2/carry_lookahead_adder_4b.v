@@ -4,21 +4,18 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    carry_lookahead_adder_4b 
-// Author(s): 
-// Description: 
-//
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Adds two 4-bit integers and outputs the sum, signals any
+//					 overflow, and outputsgroup propagate and generate signals.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module carry_lookahead_adder_4b(A,B,C_in,S,Pg,Gg,overflow);
 
-	//parameter definitions
-
-	//port definitions - customize for different bit widths
+	//port definitions
 	input wire [3:0] A, B;
 	input wire C_in;
 	output wire [3:0] S;
 	output wire Pg, Gg, overflow;
-	
 	wire [3:0] P, G, C;
 	
 	//A,B --> P,G

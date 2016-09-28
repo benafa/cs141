@@ -4,8 +4,9 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    input_inversion 
-// Author(s): 
-// Description: 
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: This is the mechanism that inverts Y and C_in to the
+//					 adder/subtractor depending on op_code.
 //
 //
 //////////////////////////////////////////////////////////////////////////////////

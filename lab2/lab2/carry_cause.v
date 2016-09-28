@@ -4,14 +4,12 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    carry_cause 
-// Author(s): 
-// Description: 
-//
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Determines if two bits would cause a carry signal, and outputs
+//					 a carry generate and carry propagate signal.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module carry_cause(A,B,G,P);
-
-	//parameter definitions
 
 	//port definitions - customize for different bit widths
 	input  wire A, B;

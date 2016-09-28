@@ -4,21 +4,18 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    carry_lookahead_adder_32b 
-// Author(s): 
-// Description: 
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Adds two 32-bit integers and outputs the sum and signals any overflow
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
 module carry_lookahead_adder_32b(A,B,C_in,S,overflow);
 
-	//parameter definitions
-
-	//port definitions - customize for different bit widths
+	//port definitions
 	input wire [31:0] A, B;
 	input wire C_in;
 	output wire [31:0] S;
 	output wire overflow;
-	
 	wire [1:0] P, G, C;
 	
 	//instantiate 4 4-bit adders

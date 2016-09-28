@@ -4,9 +4,8 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    mux_16to1 
-// Author(s): 
-// Description: 
-//
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Takes in 4 inputs and outputs one of them depending on (S[3],S[2],S[1],S[0])
 //
 //////////////////////////////////////////////////////////////////////////////////
 module mux_16to1(in0,in1,in2,in3,in4,in5,in6,in7,in8,

@@ -25,7 +25,7 @@ static const char *ng0 = "C:/Users/cs141/cs141/lab2/lab2/carry_cause.v";
 
 
 
-static void Cont_21_0(char *t0)
+static void Cont_19_0(char *t0)
 {
     char t5[8];
     char *t1;
@@ -84,7 +84,7 @@ LAB0:    t1 = (t0 + 1536U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(21, ng0);
+LAB2:    xsi_set_current_line(19, ng0);
     t2 = (t0 + 600U);
     t3 = *((char **)t2);
     t2 = (t0 + 692U);
@@ -158,7 +158,7 @@ LAB4:    t16 = *((unsigned int *)t5);
 
 }
 
-static void Cont_22_1(char *t0)
+static void Cont_20_1(char *t0)
 {
     char t5[8];
     char *t1;
@@ -199,7 +199,7 @@ LAB0:    t1 = (t0 + 1680U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(22, ng0);
+LAB2:    xsi_set_current_line(20, ng0);
     t2 = (t0 + 600U);
     t3 = *((char **)t2);
     t2 = (t0 + 692U);
@@ -254,7 +254,7 @@ LAB4:    t16 = *((unsigned int *)t5);
 
 extern void work_m_00000000000754881910_1455604469_init()
 {
-	static char *pe[] = {(void *)Cont_21_0,(void *)Cont_22_1};
+	static char *pe[] = {(void *)Cont_19_0,(void *)Cont_20_1};
 	xsi_register_didat("work_m_00000000000754881910_1455604469", "isim/test_alu_isim_beh.exe.sim/work/m_00000000000754881910_1455604469.didat");
 	xsi_register_executes(pe);
 }

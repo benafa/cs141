@@ -4,7 +4,7 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    ripple_carry_adder_32b 
-// Author(s): 
+// Author(s): Patrick Hansen & Ben Anadappa
 // Description: 
 //
 //

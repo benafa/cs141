@@ -4,9 +4,12 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    mux_4to1 
-// Author(s): 
-// Description: 
-//
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Takes in 4 inputs, A B C and D, and outputs one of them depending on (S[1],S[0])
+//							A if (0,0)
+//							B if (0,1)
+//							C if (1,0)
+//							D if (1,1)
 //
 //////////////////////////////////////////////////////////////////////////////////
 module mux_4to1(A,B,C,D,Z,S);
@@ -14,12 +17,10 @@ module mux_4to1(A,B,C,D,Z,S);
 	//parameter definitions
 	parameter N = 32;
 
-
-	//port definitions - customize for different bit widths
+	//port definitions
 	input  wire [(N - 1):0] A,B,C,D;
 	output wire [(N - 1):0] Z;
 	input  wire [1:0] S;
-	
 	wire [(N - 1):0] z0,z1;
 	
 	//first layer of multiplexing

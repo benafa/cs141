@@ -4,21 +4,18 @@
 // 
 // CS 141 - Fall 2015
 // Module Name:    carry_lookahead_adder_16b 
-// Author(s): 
-// Description: 
-//
+// Author(s): Patrick Hansen & Ben Anadappa
+// Description: Adds two 16-bit integers and outputs the sum, signals any
+//					 overflow, and outputsgroup propagate and generate signals.
 //
 //////////////////////////////////////////////////////////////////////////////////
 module carry_lookahead_adder_16b(A,B,C_in,S,Pg,Gg,overflow);
-
-	//parameter definitions
 
 	//port definitions - customize for different bit widths
 	input wire [15:0] A, B;
 	input wire C_in;
 	output wire [15:0] S;
 	output wire Pg, Gg, overflow;
-	
 	wire [3:0] P, G, C;
 	
 	//instantiate 4 4-bit adders
