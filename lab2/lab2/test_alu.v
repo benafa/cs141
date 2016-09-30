@@ -188,12 +188,28 @@ module test_alu;
 				end
 			end
 			`ALU_OP_SLT: begin
+				//only executes when the op code is 0111 (SLT)
+				if( Z !== ($signed(X) < $signed(Y)) ) begin
+					$display("ERROR: SLT:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_SRL: begin
+				//only executes when the op code is 1000 (SRL)
+				if( Z !== (X >> Y) ) begin
+					$display("ERROR: SRL:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_SLL: begin
+				//only executes when the op code is 1001 (SLL)
+				if( Z !== (X << Y) ) begin
+					$display("ERROR: SLL:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			`ALU_OP_SRA: begin
+			//only executes when the op code is 1010 (SRA)
+				if( Z !== ($signed(X) >> Y) ) begin
+					$display("ERROR: SRA:  op_code = %b, X = %h, Y = %h, Z = %h", op_code, X, Y, Z);
+				end
 			end
 			default : begin
 				//executes at default

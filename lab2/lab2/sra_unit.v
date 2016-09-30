@@ -3,9 +3,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 // 
 // CS 141 - Fall 2015
-// Module Name:    sra_unit 
-// Author(s): 
-// Description: 
+// Module Name:    sra_unit
+// Author(s): Ben Anandappa and Patrick Hansen
+// Description: Takes in each bit (X0-X31) of the number to be shifted right arithmetically, along with the 
+// 					amount to be shifted. Create a 32:1 mux for each digit as they are all connected
+//						to the inputs in different orderings depending on the position of the digit
 //
 //
 //////////////////////////////////////////////////////////////////////////////////

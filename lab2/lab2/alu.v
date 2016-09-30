@@ -73,7 +73,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	//addition, subtraction and less than
 	add_sub_32b ADD_SUB_UNIT (.X(X),.Y(Y),.sub(sub_or_slt),.S(add_out),.overflow(overflow_check));
 	assign sub_out = add_out;
-	assign is_less_than =  ((X[31] ^ ~(Y[31])) & add_out[31]) | (~(X[31]) & Y[31]);
+	assign is_less_than =  ((X[31] ^ ~(Y[31])) & add_out[31]) | (X[31] & ~(Y[31]));
 	slt_32b SLT_UNIT (.S(is_less_than), .Z(slt_out));
 	
 	//shifting

@@ -242,9 +242,9 @@ LAB14:    memcpy(t3, t18, 8);
 }
 
 
-extern void work_m_00000000002423596656_2429316398_init()
+extern void work_m_00000000003508418688_2429316398_init()
 {
 	static char *pe[] = {(void *)Cont_22_0,(void *)Cont_23_1,(void *)Cont_26_2};
-	xsi_register_didat("work_m_00000000002423596656_2429316398", "isim/test_alu_isim_beh.exe.sim/work/m_00000000002423596656_2429316398.didat");
+	xsi_register_didat("work_m_00000000003508418688_2429316398", "isim/test_alu_isim_beh.exe.sim/work/m_00000000003508418688_2429316398.didat");
 	xsi_register_executes(pe);
 }
