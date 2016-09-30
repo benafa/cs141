@@ -15,7 +15,7 @@ module slt_32b(S, Z);
 	parameter N = 32;
 
 	//port definitions
-	input wire [(N - 1):0] Z;
+	output wire [(N - 1):0] Z;
 	input wire S;
 	wire Less, More;
 	
