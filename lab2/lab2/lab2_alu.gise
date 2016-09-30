@@ -59,31 +59,13 @@
     <transform xil_pn:end_ts="1475250482" xil_pn:in_ck="-5081291694196556851" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1475250481">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="add_sub_32b.v"/>
-      <outfile xil_pn:name="add_sub_mux.v"/>
-      <outfile xil_pn:name="alu.v"/>
-      <outfile xil_pn:name="alu_defines.v"/>
-      <outfile xil_pn:name="carry_cause.v"/>
-      <outfile xil_pn:name="carry_lookahead_adder_16b.v"/>
-      <outfile xil_pn:name="carry_lookahead_adder_32b.v"/>
-      <outfile xil_pn:name="carry_lookahead_adder_4b.v"/>
-      <outfile xil_pn:name="carry_lookahead_unit_2.v"/>
-      <outfile xil_pn:name="carry_lookahead_unit_4.v"/>
-      <outfile xil_pn:name="full_adder.v"/>
-      <outfile xil_pn:name="mux_16to1.v"/>
-      <outfile xil_pn:name="mux_2to1.v"/>
-      <outfile xil_pn:name="mux_4to1.v"/>
-      <outfile xil_pn:name="ripple_carry_adder_32b.v"/>
-      <outfile xil_pn:name="ripple_carry_adder_4b.v"/>
-      <outfile xil_pn:name="shift_mux_32to1.v"/>
-      <outfile xil_pn:name="sll_unit.v"/>
-      <outfile xil_pn:name="slt_32b.v"/>
-      <outfile xil_pn:name="sra_unit.v"/>
-      <outfile xil_pn:name="srl_32b.v"/>
-      <outfile xil_pn:name="srl_mux_16to1.v"/>
-      <outfile xil_pn:name="srl_mux_2to1.v"/>
-      <outfile xil_pn:name="srl_mux_4to1.v"/>
-      <outfile xil_pn:name="test_alu.v"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1475246818" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-719424559017768776" xil_pn:start_ts="1475246818">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -100,48 +82,36 @@
     <transform xil_pn:end_ts="1475250482" xil_pn:in_ck="-5081291694196556851" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1475250482">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="add_sub_32b.v"/>
-      <outfile xil_pn:name="add_sub_mux.v"/>
-      <outfile xil_pn:name="alu.v"/>
-      <outfile xil_pn:name="alu_defines.v"/>
-      <outfile xil_pn:name="carry_cause.v"/>
-      <outfile xil_pn:name="carry_lookahead_adder_16b.v"/>
-      <outfile xil_pn:name="carry_lookahead_adder_32b.v"/>
-      <outfile xil_pn:name="carry_lookahead_adder_4b.v"/>
-      <outfile xil_pn:name="carry_lookahead_unit_2.v"/>
-      <outfile xil_pn:name="carry_lookahead_unit_4.v"/>
-      <outfile xil_pn:name="full_adder.v"/>
-      <outfile xil_pn:name="mux_16to1.v"/>
-      <outfile xil_pn:name="mux_2to1.v"/>
-      <outfile xil_pn:name="mux_4to1.v"/>
-      <outfile xil_pn:name="ripple_carry_adder_32b.v"/>
-      <outfile xil_pn:name="ripple_carry_adder_4b.v"/>
-      <outfile xil_pn:name="shift_mux_32to1.v"/>
-      <outfile xil_pn:name="sll_unit.v"/>
-      <outfile xil_pn:name="slt_32b.v"/>
-      <outfile xil_pn:name="sra_unit.v"/>
-      <outfile xil_pn:name="srl_32b.v"/>
-      <outfile xil_pn:name="srl_mux_16to1.v"/>
-      <outfile xil_pn:name="srl_mux_2to1.v"/>
-      <outfile xil_pn:name="srl_mux_4to1.v"/>
-      <outfile xil_pn:name="test_alu.v"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1475250490" xil_pn:in_ck="-5081291694196556851" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5374384365585673999" xil_pn:start_ts="1475250482">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="test_alu_beh.prj"/>
-      <outfile xil_pn:name="test_alu_isim_beh.exe"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
+      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1475250491" xil_pn:in_ck="3947456953330016118" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-493521326869147214" xil_pn:start_ts="1475250490">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="test_alu_isim_beh.wdb"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1475121739" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1475121739">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -174,17 +144,12 @@
     <transform xil_pn:end_ts="1475250351" xil_pn:in_ck="-5447185387922672824" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="4070775498405058007" xil_pn:start_ts="1475250231">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="alu.lso"/>
-      <outfile xil_pn:name="alu.ngc"/>
-      <outfile xil_pn:name="alu.ngr"/>
-      <outfile xil_pn:name="alu.prj"/>
-      <outfile xil_pn:name="alu.stx"/>
-      <outfile xil_pn:name="alu.syr"/>
-      <outfile xil_pn:name="alu.xst"/>
-      <outfile xil_pn:name="alu_xst.xrpt"/>
-      <outfile xil_pn:name="webtalk_pn.xml"/>
-      <outfile xil_pn:name="xst"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="InputRemoved"/>
+      <status xil_pn:value="OutputRemoved"/>
     </transform>
     <transform xil_pn:end_ts="1475121751" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="3734212952591172" xil_pn:start_ts="1475121750">
       <status xil_pn:value="SuccessfullyRun"/>
