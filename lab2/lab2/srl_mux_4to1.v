@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module srl_mux_4to1(A,B,C,D,Z,S);
+module shift_mux_4to1(A,B,C,D,Z,S);
 
 	//parameter definitions
 
@@ -22,11 +22,11 @@ module srl_mux_4to1(A,B,C,D,Z,S);
 	wire z0,z1;
 	
 	//first layer of multiplexing
-	srl_mux_2to1 MUX_A (.X(A), .Y(B), .S(S[0]), .Z(z0));
-	srl_mux_2to1 MUX_B (.X(C), .Y(D), .S(S[0]), .Z(z1));
+	shift_mux_2to1 MUX_A (.X(A), .Y(B), .S(S[0]), .Z(z0));
+	shift_mux_2to1 MUX_B (.X(C), .Y(D), .S(S[0]), .Z(z1));
 	
 	//second level
-	srl_mux_2to1 MUX_C (.X(z0), .Y(z1), .S(S[1]), .Z(Z));
+	shift_mux_2to1 MUX_C (.X(z0), .Y(z1), .S(S[1]), .Z(Z));
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
