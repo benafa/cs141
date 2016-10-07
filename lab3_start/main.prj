@@ -1,4 +1,0 @@
-verilog work "ipcore_dir/clock_generator.v"
-verilog work "led_switch_driver.v"
-verilog work "debouncer.v"
-verilog work "main.v"
