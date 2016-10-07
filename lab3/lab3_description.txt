@@ -1,0 +1,10 @@
+CS141 - Lab3
+Authors: Patrick Hansen & Ben Anadappa
+
+Design Methodology:
+   The register is designed to store a number of bits according to the parameter SIZE. On a positive edge of the clock the register can either reset itself to 0 or write data from D into memory if enable is active. This was achieved using an always loop that activates on the positive edge of the clock, and then checking rst and ena using if statements. 
+   The tape is designed to read from or write to a single register on every positive clock edge. If write_ena is active (high), then the tape writes data on a clock edge. If write_ena is inactive (low), then the tape reads data on a clock edge. The register from/to which the tapes reads/writes is determined by head, which essentially acts as a selector. An 8to1 mux with the head as the selector determines which of the 8 registers are enabled (acting in place of a 3to8 decoder), also considering write_ena. If a mux is enabled, then it stores write_data on a positive clock edge. Another 8to1 mux determines which of the registers' outputs is fed into the read_data, only if write_ena is inactive. If rst is high on a positive clock edge, then all the registers get reset to 0.
+
+Simulation Methodology:
+   We included each of the resgisters' outputs as otputs of the tape so that we could ook into each of the registers as we are reading and writing data to ensure only one register is written to at a time. In order to test all necessary situations, our testbench (1) writes and then reads data from each of the registers, (2) reads all of the registers again to ensure nothing was written during the reads, (3) tests is the tape is sychronous by sending writes and resets when there is no positive clock edge, and (4) resets the tape and reads all the registers to ensure they are all 0.
+   By looking at the simulation, you can see that the tape module, and therefore the register module, works as intended.
