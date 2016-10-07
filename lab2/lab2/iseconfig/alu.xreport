@@ -1,11 +1,19 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
+<<<<<<< HEAD
   <DateModified>2016-10-06T21:59:39</DateModified>
   <ModuleName>alu</ModuleName>
   <SummaryTimeStamp>2016-09-23T10:07:02</SummaryTimeStamp>
   <SavedFilePath>C:/Users/cs141/cs141/lab2/lab2/iseconfig/alu.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/cs141/cs141/lab2/lab2\</ImplementationReportsDirectory>
+=======
+  <DateModified>2016-09-30T11:59:43</DateModified>
+  <ModuleName>alu</ModuleName>
+  <SummaryTimeStamp>2016-09-30T11:45:54</SummaryTimeStamp>
+  <SavedFilePath>Z:/CS141/cs141_git/lab2/lab2/iseconfig/alu.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/CS141/cs141_git/lab2/lab2\</ImplementationReportsDirectory>
+>>>>>>> 039e285c1814af35efc36747ec2a8b3e1988a757
   <DateInitialized>2016-09-17T14:29:02</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
