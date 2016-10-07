@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\joncr_000\tm-verilog\lab3\main.ncd
+OUTFILE=C:\Users\joncr_000\tm-verilog\lab3\main.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=C:\Users\joncr_000\tm-verilog\lab3
+LICENSE=WebPack
+USER_INFO=211087253_0_0_159

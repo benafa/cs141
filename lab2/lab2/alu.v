@@ -22,7 +22,7 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 	output wire equal, overflow, zero;
 	
 	wire [31:0] and_out, or_out, xor_out, nor_out, add_out, sub_out, slt_out, srl_out, sll_out, sra_out;
-	wire add, sub, not_reserved, overflow_check;
+	wire add, sub, not_reserved, overflow_check, slt_sub, slt, sub_or_slt, is_less_than;
 	
 	//functional blocks
 	//16:1 multiplexer
@@ -50,30 +50,49 @@ module alu(X,Y,Z,op_code, equal, overflow, zero);
 								 (~(op_code[3]) & op_code[0]) |
 								 (~(op_code[3]) & op_code[1]) |
 								 (op_code[3] & ~(op_code[2]) & ~(op_code[1]));
+	
 	//determine equality and zero
 	assign equal = (&(X ^ ~(Y))) & not_reserved;
 	assign zero = (&(~(Z))) & not_reserved;
-	
-	//check if op_code is add or sub
-	assign add = (~(op_code[3]) & op_code[2] & ~(op_code[1]) & op_code[0]);
-	assign sub = (~(op_code[3]) & op_code[2] & op_code[1] & ~(op_code[0]));
-	
-	//set overflow
-	assign overflow = overflow_check & (add | sub);
-	
+		
 	//logical operations
    assign and_out = X & Y;
 	assign or_out = X | Y;
 	assign xor_out = X ^ Y;
 	assign nor_out = ~(or_out);
+
+	//classify arithmetic op_codes
+	assign add = (~(op_code[3]) & op_code[2] & ~(op_code[1]) & op_code[0]);
+	assign sub = (~(op_code[3]) & op_code[2] & op_code[1] & ~(op_code[0]));
+	assign slt = (~(op_code[3]) & op_code[2] & op_code[1] & op_code[0]);
+	assign sub_or_slt = sub | slt;
+		
+	//set overflow
+	assign overflow = overflow_check & (add | sub);
 	
-	//addition and subtraction
-	add_sub_32b ADD_SUB_UNIT (.X(X),.Y(Y),.sub(sub),.S(add_out),.overflow(overflow_check));
+	//addition, subtraction and less than
+	add_sub_32b ADD_SUB_UNIT (.X(X),.Y(Y),.sub(sub_or_slt),.S(add_out),.overflow(overflow_check));
 	assign sub_out = add_out;
+	assign is_less_than =  ((X[31] ^ ~(Y[31])) & add_out[31]) | (X[31] & ~(Y[31]));
+	slt_32b SLT_UNIT (.S(is_less_than), .Z(slt_out));
 	
 	//shifting
+	srl_unit SRL_UNIT (.X0(X[0]), .X1(X[1]), .X2(X[2]), .X3(X[3]), .X4(X[4]), .X5(X[5]), .X6(X[6]), .X7(X[7]), .X8(X[8]), .X9(X[9]), .X10(X[10]), 
+										.X11(X[11]), .X12(X[12]), .X13(X[13]), .X14(X[14]), .X15(X[15]), .X16(X[16]), .X17(X[17]), .X18(X[18]), .X19(X[19]),
+										.X20(X[20]), .X21(X[21]), .X22(X[22]), .X23(X[23]), .X24(X[24]), .X25(X[25]), .X26(X[26]), .X27(X[27]), 
+										.X28(X[28]), .X29(X[29]), .X30(X[30]), .X31(X[31]),
+							.Y(Y[4:0]),.S(srl_out));
+	sra_unit SRA_UNIT (.X0(X[0]), .X1(X[1]), .X2(X[2]), .X3(X[3]), .X4(X[4]), .X5(X[5]), .X6(X[6]), .X7(X[7]), .X8(X[8]), .X9(X[9]), .X10(X[10]), 
+										.X11(X[11]), .X12(X[12]), .X13(X[13]), .X14(X[14]), .X15(X[15]), .X16(X[16]), .X17(X[17]), .X18(X[18]), .X19(X[19]),
+										.X20(X[20]), .X21(X[21]), .X22(X[22]), .X23(X[23]), .X24(X[24]), .X25(X[25]), .X26(X[26]), .X27(X[27]), 
+										.X28(X[28]), .X29(X[29]), .X30(X[30]), .X31(X[31]),
+							.Y(Y[4:0]),.S(sra_out));
 	
-	
+	sll_unit SLL_UNIT (.X0(X[0]), .X1(X[1]), .X2(X[2]), .X3(X[3]), .X4(X[4]), .X5(X[5]), .X6(X[6]), .X7(X[7]), .X8(X[8]), .X9(X[9]), .X10(X[10]), 
+										.X11(X[11]), .X12(X[12]), .X13(X[13]), .X14(X[14]), .X15(X[15]), .X16(X[16]), .X17(X[17]), .X18(X[18]), .X19(X[19]),
+										.X20(X[20]), .X21(X[21]), .X22(X[22]), .X23(X[23]), .X24(X[24]), .X25(X[25]), .X26(X[26]), .X27(X[27]), 
+										.X28(X[28]), .X29(X[29]), .X30(X[30]), .X31(X[31]),
+							.Y(Y[4:0]),.S(sll_out));
 
 
 endmodule

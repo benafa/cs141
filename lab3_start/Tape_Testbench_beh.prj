@@ -1,0 +1,7 @@
+verilog work "mux_2to1.v"
+verilog work "mux_4to1.v"
+verilog work "register.v"
+verilog work "mux_8to1.v"
+verilog work "tape.v"
+verilog work "Tape_Testbench.v"
+verilog work "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"

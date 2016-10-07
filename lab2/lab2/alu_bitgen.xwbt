@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\cs141\cs141\lab2\lab2\alu.ncd
+OUTFILE=C:\Users\cs141\cs141\lab2\lab2\alu.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=C:\Users\cs141\cs141\lab2\lab2
+LICENSE=WebPack
+USER_INFO=207362390_1777509885_0_951

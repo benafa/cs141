@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/cs141/cs141/lab2/lab2/carry_lookahead_unit_2.v";
+static const char *ng0 = "//vmware-host/Shared Folders/CS141/cs141_git/lab2/lab2/carry_lookahead_unit_2.v";
 
 
 
