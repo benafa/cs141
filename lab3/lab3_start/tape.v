@@ -9,7 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module tape(head, write_ena, rst, clk, write_data, read_data,Q0,Q1,Q2,Q3,Q4,Q5,Q6,Q7);
+module tape(head, write_ena, rst, clk, write_data, read_data);
 
 	//parameter definitions
 	parameter SIZE = 2;
@@ -22,9 +22,7 @@ module tape(head, write_ena, rst, clk, write_data, read_data,Q0,Q1,Q2,Q3,Q4,Q5,Q
 	output wire [(SIZE - 1):0] read_data;
 	
 	wire [7:0] ena,A;
-	//temporary output
-	output wire [(SIZE - 1):0] Q0,Q1,Q2,Q3,Q4,Q5,Q6,Q7;
-	wire [(SIZE - 1):0] B;
+	wire [(SIZE - 1):0] Q0,Q1,Q2,Q3,Q4,Q5,Q6,Q7,B;
 	
 	register #(.SIZE(SIZE)) REG0 (.rst(rst), .ena(ena[0]), .clk(clk), .D(write_data), .Q(Q0));
 	register #(.SIZE(SIZE)) REG1 (.rst(rst), .ena(ena[1]), .clk(clk), .D(write_data), .Q(Q1));

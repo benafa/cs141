@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/cs141/cs141/lab3_start/tape.v";
+static const char *ng0 = "C:/Users/cs141/cs141/lab3/lab3_start/tape.v";
 static unsigned int ng1[] = {0U, 0U};
 static int ng2[] = {0, 0};
 static unsigned int ng3[] = {1U, 0U};
@@ -35,7 +35,7 @@ static unsigned int ng10[] = {128U, 0U};
 
 
 
-static void Cont_50_0(char *t0)
+static void Cont_48_0(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -80,7 +80,7 @@ LAB0:    t1 = (t0 + 3548U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(50, ng0);
+LAB2:    xsi_set_current_line(48, ng0);
     t2 = (t0 + 772U);
     t5 = *((char **)t2);
     memset(t4, 0, 8);
@@ -164,7 +164,7 @@ LAB14:    memcpy(t3, t17, 8);
 
 }
 
-static void Cont_57_1(char *t0)
+static void Cont_55_1(char *t0)
 {
     char t3[8];
     char t4[8];
@@ -228,7 +228,7 @@ LAB0:    t1 = (t0 + 3692U);
 
 LAB3:    goto *t2;
 
-LAB2:    xsi_set_current_line(57, ng0);
+LAB2:    xsi_set_current_line(55, ng0);
     t2 = (t0 + 772U);
     t6 = *((char **)t2);
     memset(t5, 0, 8);
@@ -747,9 +747,9 @@ LAB1:    return;
 }
 
 
-extern void work_m_00000000001272508523_0818802090_init()
+extern void work_m_00000000000746655899_0818802090_init()
 {
-	static char *pe[] = {(void *)Cont_50_0,(void *)Cont_57_1,(void *)implSig1_execute,(void *)implSig2_execute,(void *)implSig3_execute,(void *)implSig4_execute,(void *)implSig5_execute,(void *)implSig6_execute,(void *)implSig7_execute,(void *)implSig8_execute};
-	xsi_register_didat("work_m_00000000001272508523_0818802090", "isim/Tape_Testbench_isim_beh.exe.sim/work/m_00000000001272508523_0818802090.didat");
+	static char *pe[] = {(void *)Cont_48_0,(void *)Cont_55_1,(void *)implSig1_execute,(void *)implSig2_execute,(void *)implSig3_execute,(void *)implSig4_execute,(void *)implSig5_execute,(void *)implSig6_execute,(void *)implSig7_execute,(void *)implSig8_execute};
+	xsi_register_didat("work_m_00000000000746655899_0818802090", "isim/Tape_Testbench_isim_beh.exe.sim/work/m_00000000000746655899_0818802090.didat");
 	xsi_register_executes(pe);
 }

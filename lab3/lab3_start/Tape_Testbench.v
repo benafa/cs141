@@ -33,8 +33,6 @@ module Tape_Testbench;
 
 	// Outputs
 	wire [1:0] read_data;
-	//temporary outputs
-	wire [1:0] Q0,Q1,Q2,Q3,Q4,Q5,Q6,Q7;
 
 	// Instantiate the Unit Under Test (UUT)
 	tape uut (
@@ -43,16 +41,7 @@ module Tape_Testbench;
 		.rst(rst), 
 		.clk(clk), 
 		.write_data(write_data), 
-		.read_data(read_data),
-		//temporary outputs
-		.Q0(Q0),
-		.Q1(Q1),
-		.Q2(Q2),
-		.Q3(Q3),
-		.Q4(Q4),
-		.Q5(Q5),
-		.Q6(Q6),
-		.Q7(Q7)
+		.read_data(read_data)
 	);
 
 	initial begin

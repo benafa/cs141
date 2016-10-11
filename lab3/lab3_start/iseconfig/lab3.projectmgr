@@ -23,13 +23,13 @@
          <ClosedNode>/tm_fsm_control C:|Users|joncr_000|tm-verilog|lab3|tm_fsm_control.v/TAPE2 - tape</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>main (C:/Users/cs141/cs141/lab3_start/main.v)</SelectedItem>
+         <SelectedItem>main (C:/Users/cs141/cs141/lab3/lab3_start/main.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ad000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ad0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>main (C:/Users/cs141/cs141/lab3_start/main.v)</CurrentItem>
+      <CurrentItem>main (C:/Users/cs141/cs141/lab3/lab3_start/main.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VERILOG" guiview="Process" >
       <ClosedNodes>
@@ -101,13 +101,13 @@
          <ClosedNode>/tm_fsm_tb C:|Users|joncr_000|tm-verilog|lab3|tm_fsm_tb.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Tape_Testbench (C:/Users/cs141/cs141/lab3_start/Tape_Testbench.v)</SelectedItem>
+         <SelectedItem>Tape_Testbench (C:/Users/cs141/cs141/lab3/lab3_start/Tape_Testbench.v)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ad000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ad0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>Tape_Testbench (C:/Users/cs141/cs141/lab3_start/Tape_Testbench.v)</CurrentItem>
+      <CurrentItem>Tape_Testbench (C:/Users/cs141/cs141/lab3/lab3_start/Tape_Testbench.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
