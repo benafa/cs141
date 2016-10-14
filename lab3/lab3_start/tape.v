@@ -22,7 +22,7 @@ module tape(head, write_ena, rst, clk, write_data, read_data);
 	output wire [(SIZE - 1):0] read_data;
 	
 	wire [7:0] ena,A;
-	wire [(SIZE - 1):0] Q0,Q1,Q2,Q3,Q4,Q5,Q6,Q7,B;
+	wire [(SIZE - 1):0] Q0,Q1,Q2,Q3,Q4,Q5,Q6,Q7;
 	
 	register #(.SIZE(SIZE)) REG0 (.rst(rst), .ena(ena[0]), .clk(clk), .D(write_data), .Q(Q0));
 	register #(.SIZE(SIZE)) REG1 (.rst(rst), .ena(ena[1]), .clk(clk), .D(write_data), .Q(Q1));
@@ -51,8 +51,7 @@ module tape(head, write_ena, rst, clk, write_data, read_data);
 	//reading data, multiplexing Qs into output if write enable is inactive.
 	//multiplexing data outputs
 	mux_8to1 #(.N(SIZE)) out_MUX (.in0(Q0), .in1(Q1), .in2(Q2), .in3(Q3), .in4(Q4),
-											.in5(Q5), .in6(Q6), .in7(Q7), .S(head), .Z(B));
-	assign read_data = (~write_ena) ? B : 0; 
+											.in5(Q5), .in6(Q6), .in7(Q7), .S(head), .Z(read_data));
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire

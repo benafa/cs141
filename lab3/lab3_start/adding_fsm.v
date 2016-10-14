@@ -11,7 +11,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 `include "FSM_DEFINES.v"
 
-module adding_fsm(switch, button_center, rst, clk, led);
+module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, read_data_0, read_data_1, read_data_SUM, write_data);
 
 	//port definitions
 	input wire [7:0] switch;
@@ -20,22 +20,22 @@ module adding_fsm(switch, button_center, rst, clk, led);
 	
 	/****FINITE STATE MACHINE****/
 	
-	reg [2:0] state,			//holds the state of the fsm
+	output reg [2:0] state,			//holds the state of the fsm
 				 head,			//determines the address of the registers reading from/writing to
 				 write_ena;		//determines which tapes are being written to
-	reg [1:0] write_data;	//data being written
-	wire [1:0] read_data_0,	//data being read
+	output reg [1:0] write_data;	//data being written
+	output wire [1:0] read_data_0,	//data being read
 				  read_data_1,
 				  read_data_SUM;
 				  
 	reg reading;				//flag
 	
 	//instantiate tapes for inputs and output
-	tape TAPE_0 (.head(head), .write_ena(write_ena[0]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_0));
-	tape TAPE_1 (.head(head), .write_ena(write_ena[1]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_1));
-	tape TAPE_SUM (.head(head), .write_ena(write_ena[2]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_SUM));
+	tape TAPE_0 (.head(head), .write_ena(write_ena[0]), .rst(rst), .clk(clk), .write_data(write_data), .read_data(read_data_0));
+	tape TAPE_1 (.head(head), .write_ena(write_ena[1]), .rst(rst), .clk(clk), .write_data(write_data), .read_data(read_data_1));
+	tape TAPE_SUM (.head(head), .write_ena(write_ena[2]), .rst(rst), .clk(clk), .write_data(write_data), .read_data(read_data_SUM));
 	
-	always @(negedge cclk) begin
+	always @(negedge clk) begin
 	
 		//resetting the fsm to the initial state
 		if (rst) begin
@@ -66,13 +66,19 @@ module adding_fsm(switch, button_center, rst, clk, led);
 					end
 					else begin
 						//write data into register corresponding to the switch
-						write_data <= switch[head];
+						case (switch[head])
+							0 : write_data <= `ZERO;
+							1 : write_data <= `ONE;
+						endcase
 					end
 				end
 				else if (button_center) begin
 					reading <= 1;
 					write_ena[0] <= 1;
-					write_data <= switch[head];
+					case (switch[head])
+							0 : write_data <= `ZERO;
+							1 : write_data <= `ONE;
+					endcase
 				end
 			end
 			
@@ -90,20 +96,36 @@ module adding_fsm(switch, button_center, rst, clk, led);
 					end
 					else begin
 						//write data into register corresponding to the switch
-						write_data <= switch[head];
+						case (switch[head])
+							0 : write_data <= `ZERO;
+							1 : write_data <= `ONE;
+						endcase
 					end
 				end
 				else if (button_center) begin
 					reading <= 1;
 					write_ena[1] <= 1;
-					write_data <= switch[head];
+					case (switch[head])
+							0 : write_data <= `ZERO;
+							1 : write_data <= `ONE;
+					endcase
 				end
 			end
 			
 			/* Adding state (without carry in) */
 			`ADD_c0 : begin
 				if (reading) begin
-					head = head + 1;
+					if (head == 3'b111) begin
+						head <= 3'b000;
+						write_ena[2] <= 0;
+						reading <= 0;
+						state <= `DISPLAY_SUM;
+					end
+					else begin
+						head <= head + 1;
+						reading <= 0;
+						write_ena[2] <= 0;
+					end
 				end
 				
 				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B) begin
@@ -111,34 +133,43 @@ module adding_fsm(switch, button_center, rst, clk, led);
 					write_ena[2] <= 1;
 					write_data <= `ZERO;
 				end
- 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B) begin
+ 				else if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ONE;
 				end
-				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B) begin
+				else if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ONE;
 				end
-				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B) begin
+				else if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ZERO;
 					state <= `ADD_c1;
 				end
-				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B) begin
-					head = 3'b000;
-					write_ena[2] <= 0;
-					reading <= 0;
-					state <= `DISPLAY_SUM;
+				else if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B) begin
+					reading <= 1;
+					write_ena[2] <= 1;
+					write_data <= `ZERO;
 				end
 			end	
 			
 			/* Adding state (with carry in) */
 			`ADD_c1 : begin
 				if (reading) begin
-					head = head + 1;
+					if (head == 3'b111) begin
+						head <= 3'b000;
+						write_ena[2] <= 0;
+						reading <= 0;
+						state <= `DISPLAY_SUM;
+					end
+					else begin
+						head <= head + 1;
+						reading <= 0;
+						write_ena[2] <= 0;
+					end
 				end
 			
 				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B) begin
@@ -147,61 +178,54 @@ module adding_fsm(switch, button_center, rst, clk, led);
 					write_data <= `ONE;
 					state <= `ADD_c0;
 				end
- 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B) begin
+ 				else if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ZERO;
 				end
-				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B) begin
+				else if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ZERO;
 					end
-				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B) begin
+				else if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ONE;
 				end
-				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B) begin
-					head = 3'b000;
-					write_ena[2] <= 0;
-					reading <= 0;
-					state <= `DISPLAY_SUM;
+				else if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B) begin
+					reading <= 1;
+					write_ena[2] <= 1;
+					write_data <= `ONE;
 				end
 			end
 			
 			`DISPLAY_SUM : begin
-				if (head == 3'b111) begin
-					reading <= 0;
-				end
-				else if (head == 3'b000) begin
-					reading <= 1;
-				end
-				else if (reading) begin
-					head = head + 1;
-				end
 				case (read_data_SUM)
 					`B : begin
 						led[head] <= 0;
+						reading <= 1;
 					end
 					`ZERO : begin
 						led[head] <= 0;
+						reading <= 1;
 					end
 					`ONE : begin
-						led[head] <= 0;
+						led[head] <= 1;
+						reading <= 1;
 					end
 				endcase
+				
+				head <= head + 1;
+				
 				if (switch[7] == 1) begin
 					state <= `DISPLAY_EQUALS;
 				end	
 			end
 			
 			`DISPLAY_EQUALS : begin
-				//temporary
-				led <= 8'b00000000;
-				
 				if (switch[7] == 0) begin
-					state <= `DISPLAY_EQUALS;
+					state <= `DISPLAY_SUM;
 				end
 			end
 			
