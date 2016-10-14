@@ -108,10 +108,48 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 				end
 			end
 			`ADD_c0 : begin
-			
-			end
+				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ZERO;
+ 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ONE;
+				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ONE;
+				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ZERO;
+					state <= `ADD_c1;
+				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B)
+					head = 3'b000;
+					state <= `DISPLAY_SUM;
+			end	
 			`ADD_c1 : begin
-			
+				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ONE;
+					state <= `ADD_c0;
+ 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ZERO;
+				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ZERO;
+				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
+					head = head + 1;
+					write_ena[2] <= `ONE;
+					write_data <= `ONE;
+				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B)
+					head = 3'b000;
+					state <= `DISPLAY_SUM;		
 			end
 			
 			`DISPLAY_SUM : begin
