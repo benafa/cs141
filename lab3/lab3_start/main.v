@@ -19,7 +19,6 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 	output wire [7:0] led;
 	
 	wire cclk, rstb, rst, button_center_db;
-	reg [2:0] state;
 	
 	clock_generator CLOCK_GEN (.clk_100M_raw(unbuf_clk),.clk_100M(cclk));
 	
@@ -30,14 +29,32 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 		.clk(cclk),.rst(1'b0),.bouncy(button_center),.debounced(button_center_db));
 		
 	assign rst = ~rstb;
-	assign led = switch; // you'll want to change this!
+	//assign led = switch; // you'll want to change this!
 	
 	led_switch_driver LS_DRIVER (.button_center_db(button_center_db),.rst(rst));
 	
+	/****FINITE STATE MACHINE****/
+	
+	reg [2:0] state,			//holds the state of the fsm
+				 head,			//determines the address of the registers reading from/writing to
+				 write_ena;		//determines which tapes are being written to
+	reg [1:0] write_data,	//data being written
+				 read_data_0,	//data being read
+				 read_data_1,
+				 read_data_SUM;
+	
+	tape TAPE_0 (.head(head), .write_ena(write_ena[0]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_0);
+	tape TAPE_1 (.head(head), .write_ena(write_ena[1]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_1);
+	tape TAPE_SUM (.head(head), .write_ena(write_ena[2]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_SUM);
+	
 	always @(posedge cclk) begin
+	
+		if (rst)
+			state <= `INIT_0;
+		
 		case (state)
 			`INIT_0 : begin
-			
+				
 			end
 			`INIT_1 : begin
 			
@@ -58,6 +75,7 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 				
 			end
 		endcase
+	end
 	
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
