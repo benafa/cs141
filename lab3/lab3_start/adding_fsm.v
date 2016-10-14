@@ -29,6 +29,7 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 				  read_data_SUM;
 				  
 	reg reading;				//flag
+	reg equal;
 	
 	//instantiate tapes for inputs and output
 	tape TAPE_0 (.head(head), .write_ena(write_ena[0]), .rst(rst), .clk(clk), .write_data(write_data), .read_data(read_data_0));
@@ -50,13 +51,15 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 				write_data <= 2'b00;
 				reading <= 0;
 				state <= `INPUT_0;
+				led <= 8'b00000000;
+				equal <= 1;
 			end
 			
 			/* Takes in first number to its respective tape */
 			`INPUT_0 : begin
 				//only reads switches once the center button has been pressed and released
 				if (reading && ~button_center) begin
-					head = head + 1;
+					head <= head + 1;
 					//if we are at the end of our input, go to next state
 					if (head == 3'b111) begin
 						head <= 3'b000;
@@ -86,7 +89,7 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 			`INPUT_1 : begin
 				//only reads switches once the center button has been pressed and released
 				if (reading && ~button_center) begin
-					head = head + 1;
+					head <= head + 1;
 					//if we are at the end of our input, go to next state
 					if (head == 3'b111) begin
 						head <= 3'b000;
@@ -96,7 +99,7 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 					end
 					else begin
 						//write data into register corresponding to the switch
-						case (switch[head])
+						case (switch[head + 1])
 							0 : write_data <= `ZERO;
 							1 : write_data <= `ONE;
 						endcase
@@ -201,22 +204,26 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 			end
 			
 			`DISPLAY_SUM : begin
-				case (read_data_SUM)
-					`B : begin
-						led[head] <= 0;
-						reading <= 1;
-					end
-					`ZERO : begin
-						led[head] <= 0;
-						reading <= 1;
-					end
-					`ONE : begin
-						led[head] <= 1;
-						reading <= 1;
-					end
-				endcase
-				
-				head <= head + 1;
+				if (reading) begin
+					head <= head + 1;
+					reading <= 0;
+				end
+				else begin
+					case (read_data_SUM)
+						`B : begin
+							led[head] <= 0;
+							reading <= 1;
+						end
+						`ZERO : begin
+							led[head] <= 0;
+							reading <= 1;
+						end
+						`ONE : begin
+							led[head] <= 1;
+							reading <= 1;
+						end
+					endcase
+				end
 				
 				if (switch[7] == 1) begin
 					state <= `DISPLAY_EQUALS;
@@ -224,6 +231,19 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 			end
 			
 			`DISPLAY_EQUALS : begin
+				if (read_data_0 != read_data_1) begin
+					equal <= 0;
+				end
+				
+				if (equal) begin
+					led <= 8'b11111111;
+				end
+				else begin
+					led <= 8'b00000000;
+				end
+
+				head <= head + 1;
+				
 				if (switch[7] == 0) begin
 					state <= `DISPLAY_SUM;
 				end

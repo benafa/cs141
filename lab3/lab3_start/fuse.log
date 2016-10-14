@@ -1,4 +1,4 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/cs141/cs141/lab3/lab3_start/FSM_TESTBENCH_isim_beh.exe -prj C:/Users/cs141/cs141/lab3/lab3_start/FSM_TESTBENCH_beh.prj FSM_TESTBENCH work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/cs141/cs141/lab3/lab3_start/FSM_TESTBENCH_isim_beh.exe -prj C:/Users/cs141/cs141/lab3/lab3_start/FSM_TESTBENCH_beh.prj work.FSM_TESTBENCH work.glbl 
 ISim P.20131013 (signature 0x8ef4fb42)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
@@ -13,8 +13,8 @@ Analyzing Verilog file "C:/Users/cs141/cs141/lab3/lab3_start/FSM_TESTBENCH.v" in
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 102776 KB
-Fuse CPU Usage: 1203 ms
+Fuse Memory Usage: 103032 KB
+Fuse CPU Usage: 1156 ms
 Compiling module register(SIZE=2)
 Compiling module mux_2to1(N=8)
 Compiling module mux_4to1(N=8)
@@ -29,5 +29,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 11 Verilog Units
 Built simulation executable C:/Users/cs141/cs141/lab3/lab3_start/FSM_TESTBENCH_isim_beh.exe
-Fuse Memory Usage: 106344 KB
-Fuse CPU Usage: 1467 ms
+Fuse Memory Usage: 106600 KB
+Fuse CPU Usage: 1483 ms
