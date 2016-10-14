@@ -39,9 +39,9 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 				 head,			//determines the address of the registers reading from/writing to
 				 write_ena;		//determines which tapes are being written to
 	reg [1:0] write_data,	//data being written
-				 read_data_0,	//data being read
-				 read_data_1,
-				 read_data_SUM;
+	wire [1:0] read_data_0,	//data being read
+				  read_data_1,
+				  read_data_SUM;
 	
 	tape TAPE_0 (.head(head), .write_ena(write_ena[0]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_0);
 	tape TAPE_1 (.head(head), .write_ena(write_ena[1]), .rst(rst), .clk(cclk), .write_data(write_data), .read_data(read_data_1);
