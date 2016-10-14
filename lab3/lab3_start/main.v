@@ -121,28 +121,33 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 					head = head + 1;
 				end
 				
-				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B)
+				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ZERO;
- 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B)
+				end
+ 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ONE;
-				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
+				end
+				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ONE;
-				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
+				end
+				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B) begin
 					reading <= 1;
 					write_ena[2] <= 1;
 					write_data <= `ZERO;
 					state <= `ADD_c1;
-				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B)
+				end
+				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B) begin
 					head = 3'b000;
 					write_ena[2] <= 0;
 					reading <= 0;
 					state <= `DISPLAY_SUM;
+				end
 			end	
 			
 			/* Adding state (with carry in) */
