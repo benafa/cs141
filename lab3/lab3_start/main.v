@@ -51,18 +51,23 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 	
 	always @(negedge cclk) begin
 	
+		//resetting the fsm to the 
 		if (rst) begin
 			state <= `INITIALIZE;
 		end
 		
 		case (state)
+			
+			/* Inititalizes the inputs */
 			`INITIALIZE : begin
 				head <= 3'b000;
 				write_ena <= 3'b000;
 				write_data <= 2'b00;
+				reading <= 0;
 				state <= `INPUT_0;
 			end
-			//taking in first number
+			
+			/* Takes in first number to its respective tape */
 			`INPUT_0 : begin
 				//only reads switches once the center button has been pressed and released
 				if (reading && ~button_center_db) begin
@@ -85,6 +90,8 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 					write_data <= switch[head];
 				end
 			end
+			
+			/* Takes in second number to its respective tape */
 			`INPUT_1 : begin
 				//only reads switches once the center button has been pressed and released
 				if (reading && ~button_center_db) begin
@@ -107,49 +114,70 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 					write_data <= switch[head];
 				end
 			end
+			
+			/* Adding state (without carry in) */
 			`ADD_c0 : begin
-				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B)
+				if (reading) begin
 					head = head + 1;
-					write_ena[2] <= `ONE;
+				end
+				
+				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B)
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ZERO;
  				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B)
-					head = head + 1;
-					write_ena[2] <= `ONE;
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ONE;
 				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
-					head = head + 1;
-					write_ena[2] <= `ONE;
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ONE;
 				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
-					head = head + 1;
-					write_ena[2] <= `ONE;
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ZERO;
 					state <= `ADD_c1;
 				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B)
 					head = 3'b000;
+					write_ena[2] <= 0;
+					reading <= 0;
 					state <= `DISPLAY_SUM;
 			end	
+			
+			/* Adding state (with carry in) */
 			`ADD_c1 : begin
-				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B)
+				if (reading) begin
 					head = head + 1;
-					write_ena[2] <= `ONE;
+				end
+			
+				if(read_data_0 == `ZERO && read_data_1 == `ZERO && read_data_SUM == `B) begin
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ONE;
 					state <= `ADD_c0;
- 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B)
-					head = head + 1;
-					write_ena[2] <= `ONE;
+				end
+ 				if(read_data_0 == `ZERO && read_data_1 == `ONE && read_data_SUM == `B) begin
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ZERO;
-				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
-					head = head + 1;
-					write_ena[2] <= `ONE;
+				end
+				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B) begin
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ZERO;
-				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
-					head = head + 1;
-					write_ena[2] <= `ONE;
+					end
+				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B) begin
+					reading <= 1;
+					write_ena[2] <= 1;
 					write_data <= `ONE;
-				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B)
+				end
+				if(read_data_0 == `B && read_data_1 == `B && read_data_SUM == `B) begin
 					head = 3'b000;
-					state <= `DISPLAY_SUM;		
+					write_ena[2] <= 0;
+					reading <= 0;
+					state <= `DISPLAY_SUM;
+				end
 			end
 			
 			`DISPLAY_SUM : begin
