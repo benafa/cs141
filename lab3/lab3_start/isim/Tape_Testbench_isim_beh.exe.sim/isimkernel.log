@@ -2,14 +2,14 @@ Command line:
    Tape_Testbench_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  49383
+     -socket  49393
 
-Sat Oct 08 17:16:44 2016
+Tue Oct 11 13:41:23 2016
 
 
- Elaboration Time: 0.0625 sec
+ Elaboration Time: 0.375 sec
 
- Current Memory Usage: 657.838 Meg
+ Current Memory Usage: 657.117 Meg
 
  Total Signals          : 175
  Total Nets             : 181
@@ -21,9 +21,9 @@ Sat Oct 08 17:16:44 2016
  Total Scalar Nets and Variables : 1213
 Total Line Count : 125
 
- Total Simulation Time: 0.0625 sec
+ Total Simulation Time: 0.4375 sec
 
- Current Memory Usage: 657.838 Meg
+ Current Memory Usage: 658.166 Meg
 
-Sat Oct 08 17:17:07 2016
+Tue Oct 11 13:43:16 2016
 

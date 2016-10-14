@@ -11,9 +11,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 module adding_fsm();
 
-	//parameter definitions
-
-	//port definitions - customize for different bit widths
+	//port definitions
 
 
 endmodule

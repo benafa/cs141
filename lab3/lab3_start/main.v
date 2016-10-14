@@ -9,6 +9,7 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
+`include "FSM_DEFINES.v"
 
 module main(switch, led, rstb_button, unbuf_clk, button_center);
 
@@ -18,6 +19,7 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 	output wire [7:0] led;
 	
 	wire cclk, rstb, rst, button_center_db;
+	reg [2:0] state;
 	
 	clock_generator CLOCK_GEN (.clk_100M_raw(unbuf_clk),.clk_100M(cclk));
 	
@@ -31,6 +33,31 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 	assign led = switch; // you'll want to change this!
 	
 	led_switch_driver LS_DRIVER (.button_center_db(button_center_db),.rst(rst));
+	
+	always @(posedge cclk) begin
+		case (state)
+			`INIT_0 : begin
+			
+			end
+			`INIT_1 : begin
+			
+			end
+			`ADD_c0 : begin
+			
+			end
+			`ADD_c1 : begin
+			
+			end
+			`DISPLAY_SUM : begin
+			
+			end
+			`DISPLAY_EQUALS : begin
+			
+			end
+			default : begin
+				
+			end
+		endcase
 	
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
