@@ -1,0 +1,10 @@
+Command line:
+   FSM_TESTBENCH_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  49473
+
+Fri Oct 14 13:45:23 2016
+
+
+ Elaboration Time: 0.328125 sec
