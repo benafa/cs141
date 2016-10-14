@@ -74,7 +74,7 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
 					head = head + 1;
 					write_ena[2] <= `ONE;
-					write_data <= `ONE`
+					write_data <= `ONE`;
 				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
 					head = head + 1;
 					write_ena[2] <= `ONE;
@@ -97,7 +97,7 @@ module main(switch, led, rstb_button, unbuf_clk, button_center);
 				if(read_data_0 == `ONE && read_data_1 == `ZERO && read_data_SUM == `B)
 					head = head + 1;
 					write_ena[2] <= `ONE;
-					write_data <= `ZERO`
+					write_data <= `ZERO`;
 				if(read_data_0 == `ONE && read_data_1 == `ONE && read_data_SUM == `B)
 					head = head + 1;
 					write_ena[2] <= `ONE;
