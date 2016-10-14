@@ -70,7 +70,7 @@ module FSM_TESTBENCH;
 		#10;  button_center = 0;
 		#400; switch[7] = 1;
 		#100; switch[7] = 0;
-		#100;
+		#200;
 		
 		//reset tapes and state
 		rst = 1;

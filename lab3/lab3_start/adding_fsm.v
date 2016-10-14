@@ -69,7 +69,7 @@ module adding_fsm(switch, button_center, rst, clk, led, state, head, write_ena, 
 					end
 					else begin
 						//write data into register corresponding to the switch
-						case (switch[head])
+						case (switch[head + 1])
 							0 : write_data <= `ZERO;
 							1 : write_data <= `ONE;
 						endcase
