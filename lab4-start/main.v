@@ -29,6 +29,10 @@ assign led = switch; // feel free to use this or any of the other IO devices for
 //generate clock
 clock_generator CLOCK_GEN (.clk100M_raw(unbuf_clk), .clk100M(cclk));
 
+//datapath
+mips_datapath DATAPATH (.clk(clk), .rstb(rstb), .rst(rst), .Error(Error));
+
+/*
 //memory
 wire [N-1:0] mem_addr0, mem_rd_addr0, mem_wr_data0, mem_wr_addr1, mem_rd_addr1, mem_wr_data1, mem_addr0, mem_addr1;
 wire [N-1:0] mem_rd_data0, mem_rd_data1;
@@ -47,8 +51,7 @@ synth_dual_port_memory #(.N(32), .I_LENGTH(256), .D_LENGTH(513), .I_WIDTH(8), .D
 	.din1(mem_wr_data1),
 	.dout1(mem_rd_data1)
 );
-
-// you'll want to make a module for your mips core and interface with the memory module here
+*/
 
 endmodule
 
