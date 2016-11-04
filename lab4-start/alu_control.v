@@ -19,7 +19,7 @@ module alu_control(ALUOp, funct, ALUControl);
 	output reg [3:0] ALUControl;
 
 	always @(*) begin
-		if (ALUOP[1]) begin
+		if (ALUOp[1]) begin
 			case (funct)
 				`ADD : ALUControl = `ALU_OP_ADD;
 				`SUB : ALUControl = `ALU_OP_SUB;
@@ -34,10 +34,10 @@ module alu_control(ALUOp, funct, ALUControl);
 				default : ALUControl = 0;
 			endcase
 		end
-		if (ALUOP[0]) begin
+		if (ALUOp[0]) begin
 			ALUControl = `ALU_OP_SUB;
 		end
-		else if (!ALUOP[1]) begin
+		else if (!ALUOp[1]) begin
 			ALUControl = `ALU_OP_ADD;
 		end
 	end

@@ -29,8 +29,10 @@ assign led = switch; // feel free to use this or any of the other IO devices for
 //generate clock
 clock_generator CLOCK_GEN (.clk100M_raw(unbuf_clk), .clk100M(cclk));
 
+//datapath outputs
+
 //datapath
-mips_datapath DATAPATH (.clk(clk), .rstb(rstb), .rst(rst), .Error(Error));
+mips_datapath DATAPATH (.clk(clk), .rst(rst));
 
 /*
 //memory

@@ -18,6 +18,7 @@ reg  clk, rst;
 wire rstb;
 assign rstb = ~rst;
 
+parameter N = 32;
 
 //memory
 wire [N-1:0] mem_wr_data, mem_addr;

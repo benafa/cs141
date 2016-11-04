@@ -115,6 +115,7 @@ reg [8*100:0] INIT_DATA;
 initial begin
 	if(!$value$plusargs("INIT_INST=%s", INIT_INST)) begin
 		INIT_INST="tests/current_test.memh";
+		$display("initializing instructions from current_test.memh");
 	end
 	if(!$value$plusargs("INIT_DATA=%s", INIT_DATA)) begin
 		$display("no data file was supplied, using tests/zero.memh");

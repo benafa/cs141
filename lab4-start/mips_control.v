@@ -12,7 +12,7 @@
 `include "mips_defines.v"
 
 module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, MemtoReg, IRWrite, 
-						  ALUSrcA, RegWrite, RegDst, Error, ALUSrcB, ALUOp, PCSource);
+						  ALUSrcA, RegWrite, RegDst, Error, ALUSrcB, ALUOp, PCSource, state);
 
 	input wire clk, rst;
 	input wire [5:0] op_code;
@@ -20,7 +20,8 @@ module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, Mem
 					 ALUSrcA, RegWrite, RegDst, Error;
 	output reg [1:0] ALUSrcB, ALUOp, PCSource;
 	
-	reg [3:0] state, next_state;
+	output reg [3:0] state;
+	reg [3:0] next_state;
 	
 	//next state logic
 	always @(posedge clk) begin
@@ -32,11 +33,19 @@ module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, Mem
 	always @(*) begin
 		if (rst) begin
 			next_state = `FETCH_0;
-			PCWrite = 0;
+			PCWrite = 1;
 			IRWrite = 0;
 			MemWrite = 0;
 			RegWrite = 0;
-			Error = 1;
+			Error = 0;
+			PCWriteCond = 0;
+			IorD = 0;
+			MemtoReg = 0;
+			ALUSrcA = 0;
+			RegDst = 0;
+			ALUSrcB = 01;
+			ALUOp = 00;
+			PCSource = 00;
 		end
 		else begin
 			case (state)
@@ -50,18 +59,28 @@ module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, Mem
 					ALUSrcA = 0;
 					ALUSrcB = 01;
 					ALUOp = 00;
-					PCSrc = 00;
+					PCSource = 00;
 				end
 				`FETCH_1 : begin
-					case (op_code)
-						`R_TYPE : next_case = `EXECUTE;
-						default : next_case = `ERROR;
-					endcase
-					next_state = `EXECUTE;
+					next_state = `DECODE;
 					PCWrite = 1;
 					IRWrite = 1;
 					MemWrite = 0;
 					RegWrite = 0;
+				end
+				`DECODE : begin
+					case (op_code)
+						`R_TYPE : next_state = `EXECUTE;
+						default : next_state = `ERROR;
+					endcase
+					PCWrite = 0;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					ALUSrcA = 0;
+					ALUSrcB = 11; //not currently useful
+					ALUOp = 00;
+					PCWriteCond = 0;
 				end
 				`EXECUTE : begin
 					next_state = `ALU_WRITEBACK;
