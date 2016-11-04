@@ -1,0 +1,44 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/cs141/cs141/lab4-start/datapath_testbench_isim_beh.exe -prj C:/Users/cs141/cs141/lab4-start/datapath_testbench_beh.prj work.datapath_testbench work.glbl 
+ISim P.20131013 (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/remote_sources/_/register.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/decoder.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/remote_sources/_/register_file.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/remote_sources/_/alu.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/alu_control.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/remote_sources/_/synth_dual_port_memory.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/mips_core.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/mips_control.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/mips_datapath.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4-start/datapath_testbench.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4-start/mips_datapath.v" Line 40: Port error is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4-start/mips_core.v" Line 53: Port equal is not connected to this instance
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4-start/mips_core.v" Line 45: Size mismatch in connection of port <rst>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4-start/mips_core.v" Line 47: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4-start/mips_core.v" Line 48: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4-start/mips_core.v" Line 49: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4-start/mips_core.v" Line 50: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+Completed static elaboration
+Fuse Memory Usage: 102776 KB
+Fuse CPU Usage: 312 ms
+Compiling module synth_dual_port_memory(I_LENGTH=...
+Compiling module register
+Compiling module alu
+Compiling module alu_control
+Compiling module decoder(N=5)
+Compiling module register(N=32)
+Compiling module register_file
+Compiling module mips_core
+Compiling module mips_control
+Compiling module mips_datapath
+Compiling module datapath_testbench
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 12 Verilog Units
+Built simulation executable C:/Users/cs141/cs141/lab4-start/datapath_testbench_isim_beh.exe
+Fuse Memory Usage: 106344 KB
+Fuse CPU Usage: 421 ms
