@@ -19,15 +19,16 @@ Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into libr
 Starting static elaboration
 WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench.v" Line 39: Port mem_wr_ena0 is not connected to this instance
 WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_datapath.v" Line 43: Port error is not connected to this instance
-WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 67: Port equal is not connected to this instance
-WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 59: Size mismatch in connection of port <rst>. Formal port size is 1-bit while actual signal size is 32-bit.
-WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 61: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 69: Port equal is not connected to this instance
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 60: Size mismatch in connection of port <rst>. Formal port size is 1-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 62: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 63: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
 WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 64: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 65: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 66: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
 Completed static elaboration
-Fuse Memory Usage: 102264 KB
-Fuse CPU Usage: 264 ms
+Fuse Memory Usage: 102776 KB
+Fuse CPU Usage: 1015 ms
 Compiling module synth_dual_port_memory(I_LENGTH=...
 Compiling module sign_extend_default
 Compiling module sign_extend(START=16)
@@ -47,5 +48,5 @@ Compiling module glbl
 Time Resolution for simulation is 1ps.
 Compiled 16 Verilog Units
 Built simulation executable C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_isim_beh.exe
-Fuse Memory Usage: 106856 KB
-Fuse CPU Usage: 405 ms
+Fuse Memory Usage: 106344 KB
+Fuse CPU Usage: 1483 ms

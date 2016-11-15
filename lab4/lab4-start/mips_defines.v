@@ -60,10 +60,12 @@
 `define ADDI	6'b001000
 `define LW		6'b100011
 `define SW		6'b101011
-`define J		6'b101100
-`define JR		6'b101101
-`define JAL		6'b101110
-`define BEQ		6'b101111
-`define BNE		6'b110000
+`define J		6'b000010
+`define JAL		6'b000011
+`define BEQ		6'b000100
+`define BNE		6'b000101
+
+//function codes
+`define JR		6'b001000
 
 `endif

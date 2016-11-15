@@ -33,8 +33,8 @@ module mips_datapath(clk, rst, Error, instr, PC_out, state, MDR_out, A_out, B_ou
 	output wire [31:0] MDR_out, A_out, B_out, ALU_out, ALUout_out;
 
 	//mips control outputs
-	wire PCWriteCond, PCWrite, IorD, MemtoReg, IRWrite, ALUSrcA, RegWrite, RegDst, EQorNE;
-	wire [1:0] ALUSrcB, PCSource;
+	wire PCWriteCond, PCWrite, IorD, IRWrite, ALUSrcA, RegWrite, EQorNE;
+	wire [1:0] ALUSrcB, PCSource, RegDst, MemtoReg;
 	wire [2:0] ALUOp;
 	output wire [4:0] state;
 

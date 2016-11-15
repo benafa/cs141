@@ -23,12 +23,12 @@ module mips_core(clk, rst, mem_rd_data, mem_addr, mem_wr_data, instr, PCWriteCon
 	
 	//buses
 	wire PC_ena, ALU_zero, shift;
-	output wire [31:0] PC_out, MDR_out, A_out, B_out, ALU_out, ALUout_out, branch_in, branch_out;
+	output wire [31:0] PC_out, MDR_out, A_out, B_out, ALU_out, ALUout_out;
 	reg [31:0] PC_in;
 	wire [31:0] reg_file_wr_data, reg_file_rd_data1, reg_file_rd_data2, ALU_inA, ALU_inB, ALU_in0, ALU_in1;
 	wire [3:0] ALUControl;
 	wire [4:0] reg_file_rd_addr1, reg_file_rd_addr2, reg_file_wr_addr;
-	wire [31:0] shamt_extended, imm_extended, branch_relative_addr, jump_target_addr;
+	wire [31:0] shamt_extended, imm_extended, branch_relative_addr, jump_target_addr, branch_in, branch_out;
 	wire [27:0] jump_relative_addr;
 					
 	assign mem_wr_data = B_out;
