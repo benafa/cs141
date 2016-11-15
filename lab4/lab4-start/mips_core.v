@@ -12,18 +12,18 @@
 `include "mips_defines.v"
 
 module mips_core(clk, rst, mem_rd_data, mem_addr, mem_wr_data, instr, PCWriteCond,
-					  PCWrite, IorD, MemtoReg, IRWrite, RegDst, RegWrite, ALUSrcA, ALUSrcB, ALUOp, PCSource,
+					  PCWrite, IorD, MemtoReg, IRWrite, RegDst, RegWrite, ALUSrcA, ALUSrcB, ALUOp, PCSource, EQorNE,
 					  PC_out, MDR_out, A_out, B_out, ALU_out, ALUout_out);
 
-	input wire clk, rst, PCWriteCond, PCWrite, IorD, MemtoReg, IRWrite, RegDst, RegWrite, ALUSrcA;
-	input wire [1:0] ALUSrcB, PCSource;
+	input wire clk, rst, PCWriteCond, PCWrite, IorD, IRWrite, RegWrite, ALUSrcA, EQorNE;
+	input wire [1:0] ALUSrcB, PCSource, RegDst, MemtoReg;
 	input wire [2:0] ALUOp;
 	input wire [31:0] mem_rd_data;
 	output wire [31:0] mem_addr, mem_wr_data, instr;
 	
 	//buses
 	wire PC_ena, ALU_zero, shift;
-	output wire [31:0] PC_out, MDR_out, A_out, B_out, ALU_out, ALUout_out;
+	output wire [31:0] PC_out, MDR_out, A_out, B_out, ALU_out, ALUout_out, branch_in, branch_out;
 	reg [31:0] PC_in;
 	wire [31:0] reg_file_wr_data, reg_file_rd_data1, reg_file_rd_data2, ALU_inA, ALU_inB, ALU_in0, ALU_in1;
 	wire [3:0] ALUControl;
@@ -34,14 +34,15 @@ module mips_core(clk, rst, mem_rd_data, mem_addr, mem_wr_data, instr, PCWriteCon
 	assign mem_wr_data = B_out;
 	
 	//muxes and combinational logic
-	assign PC_ena = PCWrite | (PCWriteCond & ALU_zero);
+	assign PC_ena = PCWrite | (PCWriteCond & branch_out);
 	assign mem_addr = IorD ? ALUout_out : PC_out;
-	assign reg_file_wr_addr = RegDst ? instr[15:11] : instr[20:16];
-	assign reg_file_wr_data = MemtoReg ? MDR_out : ALUout_out;
+	assign reg_file_wr_addr = RegDst[1] ? 32'd31 : (RegDst[0] ? instr[15:11] : instr[20:16]);
+	assign reg_file_wr_data = MemtoReg[1] ? PC_out : (MemtoReg[0] ? MDR_out : ALUout_out);
 	assign ALU_inA = ALUSrcA ? A_out : PC_out;
 	assign ALU_inB = ALUSrcB[1] ? (ALUSrcB[0] ? branch_relative_addr : imm_extended) : (ALUSrcB[0] ? 32'h4 : B_out);
 	assign ALU_in0 = shift ? ALU_inB : ALU_inA;
 	assign ALU_in1 = shift ? shamt_extended : ALU_inB;
+	assign branch_in = EQorNE ? ALU_zero : (~ ALU_zero);
 	
 	
 	//sign extending
@@ -62,6 +63,7 @@ module mips_core(clk, rst, mem_rd_data, mem_addr, mem_wr_data, instr, PCWriteCon
 	register #(.N(32)) A (.clk(clk), .d(reg_file_rd_data1), .q(A_out), .rst(rst), .ena(`ALWAYS_ENA));
 	register #(.N(32)) B (.clk(clk), .d(reg_file_rd_data2), .q(B_out), .rst(rst), .ena(`ALWAYS_ENA));
 	register #(.N(32)) ALUout (.clk(clk), .d(ALU_out), .q(ALUout_out), .rst(rst), .ena(`ALWAYS_ENA));
+	register #(.N(32)) BRANCH (.clk(clk), .d(branch_in), .q(branch_out), .rst(rst), .ena(`ALWAYS_ENA));
 	
 	//instantiating ALU
 	alu #(.N(32)) ALU (.x(ALU_in0), .y(ALU_in1), .op_code(ALUControl), .z(ALU_out), .zero(ALU_zero));
@@ -79,7 +81,7 @@ module mips_core(clk, rst, mem_rd_data, mem_addr, mem_wr_data, instr, PCWriteCon
 			PC_in = 32'h00400000;
 		end
 		else begin
-			PC_in = PCSource[1] ? (PCSource[0] ? 0 : jump_target_addr) : (PCSource[0] ? ALUout_out : ALU_out);
+			PC_in = PCSource[1] ? (PCSource[0] ? A_out : jump_target_addr) : (PCSource[0] ? ALUout_out : ALU_out);
 		end
 	end
 
