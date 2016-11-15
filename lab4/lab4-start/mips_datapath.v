@@ -33,7 +33,7 @@ module mips_datapath(clk, rst, Error, instr, PC_out, state, MDR_out, A_out, B_ou
 	output wire [31:0] MDR_out, A_out, B_out, ALU_out, ALUout_out;
 
 	//mips control outputs
-	wire PCWriteCond, PCWrite, IorD, MemtoReg, IRWrite, ALUSrcA, RegWrite, RegDst;
+	wire PCWriteCond, PCWrite, IorD, MemtoReg, IRWrite, ALUSrcA, RegWrite, RegDst, EQorNE;
 	wire [1:0] ALUSrcB, PCSource;
 	wire [2:0] ALUOp;
 	output wire [4:0] state;
@@ -57,14 +57,14 @@ module mips_datapath(clk, rst, Error, instr, PC_out, state, MDR_out, A_out, B_ou
 	mips_core CORE (.clk(clk), .rst(rst), .mem_rd_data(mem_rd_data0), .mem_addr(mem_addr0), .mem_wr_data(mem_wr_data0),
 						 .instr(instr), .PCWriteCond(PCWriteCond), .PCWrite(PCWrite), .IorD(IorD), .MemtoReg(MemtoReg),
 						 .IRWrite(IRWrite), .RegDst(RegDst), .RegWrite(RegWrite), .ALUSrcA(ALUSrcA), .ALUSrcB(ALUSrcB),
-						 .ALUOp(ALUOp), .PCSource(PCSource),.PC_out(PC_out), .MDR_out(MDR_out), .A_out(A_out), .B_out(B_out),
+						 .ALUOp(ALUOp), .PCSource(PCSource), .EQorNE(EQorNE), .PC_out(PC_out), .MDR_out(MDR_out), .A_out(A_out), .B_out(B_out),
 						 .ALU_out(ALU_out), .ALUout_out(ALUout_out));
 
 	//instantiate mips control
-	mips_control CONTROL (.clk(clk), .rst(rst), .op_code(instr[31:26]), .PCWriteCond(PCWriteCond), .PCWrite(PCWrite),
+	mips_control CONTROL (.clk(clk), .rst(rst), .op_code(instr[31:26]), .funct(instr[5:0]), .PCWriteCond(PCWriteCond), .PCWrite(PCWrite),
 								 .IorD(IorD), .MemWrite(mem_wr_ena0), .MemtoReg(MemtoReg), .IRWrite(IRWrite), .ALUSrcA(ALUSrcA),
 								 .RegWrite(RegWrite), .RegDst(RegDst), .Error(Error), .ALUSrcB(ALUSrcB), .ALUOp(ALUOp),
-								 .PCSource(PCSource), .state(state));
+								 .PCSource(PCSource), .EQorNE(EQorNE), .state(state));
 
 endmodule
 `default_nettype wire //some Xilinx IP requires that the default_nettype be set to wire
