@@ -1,0 +1,51 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_isim_beh.exe -prj C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_beh.prj work.datapath_testbench work.glbl 
+ISim P.20131013 (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 1
+Turning on mult-threading, number of parallel sub-compilation jobs: 0 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/remote_sources/_/register.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/decoder.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/sign_extend.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/shift_left.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/remote_sources/_/register_file.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/remote_sources/_/alu.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/alu_control.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/remote_sources/_/synth_dual_port_memory.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/mips_control.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/mips_datapath.v" into library work
+Analyzing Verilog file "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench.v" Line 39: Port mem_wr_ena0 is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_datapath.v" Line 43: Port error is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 67: Port equal is not connected to this instance
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 59: Size mismatch in connection of port <rst>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 61: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 62: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 63: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+WARNING:HDLCompiler:189 - "C:/Users/cs141/cs141/lab4/lab4-start/mips_core.v" Line 64: Size mismatch in connection of port <ena>. Formal port size is 1-bit while actual signal size is 32-bit.
+Completed static elaboration
+Fuse Memory Usage: 102264 KB
+Fuse CPU Usage: 264 ms
+Compiling module synth_dual_port_memory(I_LENGTH=...
+Compiling module sign_extend_default
+Compiling module sign_extend(START=16)
+Compiling module shift_left_default
+Compiling module shift_left(START=26,END=28)
+Compiling module register
+Compiling module alu
+Compiling module alu_control
+Compiling module decoder(N=5)
+Compiling module register(N=32)
+Compiling module register_file
+Compiling module mips_core
+Compiling module mips_control
+Compiling module mips_datapath
+Compiling module datapath_testbench
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 16 Verilog Units
+Built simulation executable C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_isim_beh.exe
+Fuse Memory Usage: 106856 KB
+Fuse CPU Usage: 405 ms

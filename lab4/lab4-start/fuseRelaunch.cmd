@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_isim_beh.exe" -prj "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_beh.prj" "work.datapath_testbench" "work.glbl" 

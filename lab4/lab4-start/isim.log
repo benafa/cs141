@@ -1,0 +1,37 @@
+ISim log file
+Running: C:\Users\cs141\cs141\lab4\lab4-start\datapath_testbench_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench_isim_beh.wdb 
+ISim P.20131013 (signature 0x8ef4fb42)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING:  For instance CORE/PC/, width 1 of formal port rst is not equal to width 32 of actual constant.
+WARNING:  For instance CORE/MDR/, width 1 of formal port ena is not equal to width 32 of actual constant.
+WARNING:  For instance CORE/A/, width 1 of formal port ena is not equal to width 32 of actual constant.
+WARNING:  For instance CORE/B/, width 1 of formal port ena is not equal to width 32 of actual constant.
+WARNING:  For instance CORE/ALUout/, width 1 of formal port ena is not equal to width 32 of actual constant.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+initializing instructions from current_test.memh
+no data file was supplied, using tests/zero.memh
+initializing datapath_testbench.uut.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+Finished circuit initialization process.
+# restart
+# run all
+Simulator is doing circuit initialization process.
+initializing instructions from current_test.memh
+no data file was supplied, using tests/zero.memh
+initializing datapath_testbench.uut.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+Finished circuit initialization process.
+Stopped at time : 727590 ns : File "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench.v" Line 68
+# restart
+# run all
+Simulator is doing circuit initialization process.
+initializing instructions from current_test.memh
+no data file was supplied, using tests/zero.memh
+initializing datapath_testbench.uut.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+Finished circuit initialization process.
+Stopped at time : 218190 ns : File "C:/Users/cs141/cs141/lab4/lab4-start/datapath_testbench.v" Line 68
