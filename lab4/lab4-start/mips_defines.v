@@ -43,6 +43,12 @@
 `define MEM_READ_1		5'b01101
 `define MEM_WRITEBACK	5'b01110
 `define MEM_WRITE			5'b01111
+`define EXECUTE_J			5'b10000
+`define EXECUTE_JR		5'b10001
+`define EXECUTE_JAL		5'b10010
+`define BRANCH_COND_BEQ	5'b10011
+`define BRANCH_COND_BNE	5'b10100
+`define EXECUTE_BRANCH	5'b10101
 `define ERROR				5'b11111
 
 // op codes
@@ -54,5 +60,10 @@
 `define ADDI	6'b001000
 `define LW		6'b100011
 `define SW		6'b101011
+`define J		6'b101100
+`define JR		6'b101101
+`define JAL		6'b101110
+`define BEQ		6'b101111
+`define BNE		6'b110000
 
 `endif

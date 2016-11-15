@@ -12,12 +12,12 @@
 `include "mips_defines.v"
 
 module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, MemtoReg, IRWrite, 
-						  ALUSrcA, RegWrite, RegDst, Error, ALUSrcB, ALUOp, PCSource, state);
+						  ALUSrcA, RegWrite, RegDst, Error, ALUSrcB, ALUOp, PCSource, EQorNE, state);
 
 	input wire clk, rst;
 	input wire [5:0] op_code;
 	output reg PCWriteCond, PCWrite, IorD, MemWrite, MemtoReg, IRWrite, 
-					 ALUSrcA, RegWrite, RegDst, Error;
+					 ALUSrcA, RegWrite, RegDst, EQorNE, Error;
 	output reg [1:0] ALUSrcB, PCSource;
 	output reg [2:0] ALUOp;
 	
@@ -79,6 +79,11 @@ module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, Mem
 						`ADDI 	: next_state = `EXECUTE_ADDI;
 						`LW		: next_state = `MEM_ADDR;
 						`SW		: next_state = `MEM_ADDR;
+						`J			: next_state = `EXECUTE_J;
+						`JR		: next_state = `EXECUTE_JR;
+						`JAL		: next_state = `EXECUTE_JAL;
+						`BEQ		: next_state = `BRANCH_COND_BEQ;
+						`BNE		: next_state = `BRANCH_COND_BNE;
 						default	: next_state = `ERROR;
 					endcase
 					PCWrite = 0;
@@ -159,6 +164,66 @@ module mips_control(clk, rst, op_code, PCWriteCond, PCWrite, IorD, MemWrite, Mem
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_ADD;
+				end
+				`EXECUTE_J : begin
+					next_state = `FETCH_0;
+					PCWrite = 1;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					PCSource = 10;
+				end
+				`EXECUTE_JR : begin
+					next_state = `FETCH_0;
+					PCWrite = 1;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					PCSource = 11;
+				end
+				`EXECUTE_JAL : begin
+					next_state = `FETCH_0;
+					PCWrite = 1;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					PCSource = 10;
+					RegDst = 10;
+					MemtoReg = 10;
+				end
+				`BRANCH_COND_BEQ : begin
+					next_state = `EXECUTE_BRANCH;
+					PCWrite = 0;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					ALUSrcA = 1;
+					ALUSrcB = 0;
+					ALUOp = `MIPS_SUB;
+					EQorNE = 0;
+				end
+				`BRANCH_COND_BNE : begin
+					next_state = `EXECUTE_BRANCH;
+					PCWrite = 0;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					ALUSrcA = 1;
+					ALUSrcB = 0;
+					ALUOp = `MIPS_SUB;
+					EQorNE = 1;
+				end
+				`EXECUTE_BRANCH : begin
+					next_state = `FETCH_0;
+					PCWrite = 0;
+					IRWrite = 0;
+					MemWrite = 0;
+					RegWrite = 0;
+					ALUSrcA = 0;
+					ALUSrcB = 11;
+					ALUOp = `MIPS_ADD;
+					PCSource = 0;
+					PCWriteCond = 1;
 				end
 				`WRITEBACK_I : begin
 					next_state = `FETCH_0;
