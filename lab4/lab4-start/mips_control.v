@@ -62,6 +62,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcB = 01;
 					ALUOp = `MIPS_ADD;
 					PCSource = 00;
+					PCWriteCond = 0;
 				end
 				`FETCH_1 : begin
 					next_state = `DECODE;
@@ -69,6 +70,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					IRWrite = 1;
 					MemWrite = 0;
 					RegWrite = 0;
+					PCWriteCond = 0;
 				end
 				`DECODE : begin
 					if (op_code == `R_TYPE && funct == `JR) begin
@@ -109,6 +111,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 00;
 					ALUOp = `MIPS_R_TYPE;
+					PCWriteCond = 0;
 				end
 				`WRITEBACK_R : begin
 					next_state = `FETCH_0;
@@ -119,6 +122,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					RegDst = 01;
 					MemtoReg = 00;
 					RegWrite = 1;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_ANDI : begin
 					next_state = `WRITEBACK_I;
@@ -129,6 +133,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_AND;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_ORI : begin
 					next_state = `WRITEBACK_I;
@@ -139,6 +144,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_OR;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_XORI : begin
 					next_state = `WRITEBACK_I;
@@ -149,6 +155,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_XOR;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_SLTI : begin
 					next_state = `WRITEBACK_I;
@@ -159,6 +166,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_SLT;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_ADDI : begin
 					next_state = `WRITEBACK_I;
@@ -169,6 +177,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_ADD;
+					PCWriteCond = 0;
 				end
 				`WRITEBACK_I : begin
 					next_state = `FETCH_0;
@@ -178,6 +187,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					RegWrite = 1;
 					RegDst = 00;
 					MemtoReg = 00;
+					PCWriteCond = 0;
 				end
 				`MEM_ADDR : begin
 					case (op_code)
@@ -192,6 +202,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 1;
 					ALUSrcB = 10;
 					ALUOp = `MIPS_ADD;
+					PCWriteCond = 0;
 				end
 				`MEM_READ_0 : begin
 					next_state = `MEM_READ_1;
@@ -203,6 +214,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcB = 10;
 					ALUOp = `MIPS_ADD;
 					IorD = 1;
+					PCWriteCond = 0;
 				end
 				`MEM_READ_1 : begin
 					next_state = `MEM_WRITEBACK;
@@ -214,6 +226,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcB = 10;
 					ALUOp = `MIPS_ADD;
 					IorD = 1;
+					PCWriteCond = 0;
 				end
 				`MEM_WRITEBACK : begin
 					next_state = `FETCH_0;
@@ -223,6 +236,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					RegWrite = 1;
 					RegDst = 00;
 					MemtoReg = 01;
+					PCWriteCond = 0;
 				end
 				`MEM_WRITE : begin
 					next_state = `FETCH_0;
@@ -231,6 +245,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					MemWrite = 1;
 					RegWrite = 0;
 					IorD = 1;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_J : begin
 					next_state = `FETCH_0;
@@ -239,6 +254,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					MemWrite = 0;
 					RegWrite = 0;
 					PCSource = 10;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_JR : begin
 					next_state = `FETCH_0;
@@ -247,16 +263,18 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					MemWrite = 0;
 					RegWrite = 0;
 					PCSource = 11;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_JAL : begin
 					next_state = `FETCH_0;
 					PCWrite = 1;
 					IRWrite = 0;
 					MemWrite = 0;
-					RegWrite = 0;
+					RegWrite = 1;
 					PCSource = 10;
 					RegDst = 10;
 					MemtoReg = 10;
+					PCWriteCond = 0;
 				end
 				`BRANCH_COND_BEQ : begin
 					next_state = `EXECUTE_BRANCH;
@@ -268,6 +286,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcB = 00;
 					ALUOp = `MIPS_SUB;
 					EQorNE = 1;
+					PCWriteCond = 0;
 				end
 				`BRANCH_COND_BNE : begin
 					next_state = `EXECUTE_BRANCH;
@@ -279,6 +298,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcB = 0;
 					ALUOp = `MIPS_SUB;
 					EQorNE = 0;
+					PCWriteCond = 0;
 				end
 				`EXECUTE_BRANCH : begin
 					next_state = `FETCH_0;
@@ -289,7 +309,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					ALUSrcA = 0;
 					ALUSrcB = 11;
 					ALUOp = `MIPS_ADD;
-					PCSource = 0;
+					PCSource = 00;
 					PCWriteCond = 1;
 				end
 				`ERROR : begin
@@ -298,6 +318,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					MemWrite = 0;
 					RegWrite = 0;
 					Error = 1;
+					PCWriteCond = 0;
 				end
 				default : begin
 					next_state = `FETCH_0;
@@ -305,6 +326,7 @@ module mips_control(clk, rst, op_code, funct, PCWriteCond, PCWrite, IorD, MemWri
 					IRWrite = 0;
 					MemWrite = 0;
 					RegWrite = 0;
+					PCWriteCond = 0;
 				end
 			endcase
 		end
