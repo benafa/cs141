@@ -20,3 +20,10 @@ initializing instructions from current_test.memh
 no data file was supplied, using tests/zero.memh
 initializing datapath_testbench.uut.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
 Finished circuit initialization process.
+# restart
+# run 1.00us
+Simulator is doing circuit initialization process.
+initializing instructions from current_test.memh
+no data file was supplied, using tests/zero.memh
+initializing datapath_testbench.uut.MEMORY's instruction memory from '                                                                              tests/current_test.memh' and data memory from '                                                                                      tests/zero.memh'
+Finished circuit initialization process.

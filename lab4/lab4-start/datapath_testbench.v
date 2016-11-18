@@ -30,10 +30,8 @@ module datapath_testbench;
 
 	// Outputs
 	wire Error;
-	wire [31:0] instr;
-	wire [31:0] PC_out, MDR_out, A_out, B_out, ALU_out, ALUout_out;
+	wire [31:0] instr, PC_out;
 	wire [4:0] state;
-	wire [31:0] mem_addr0;
 
 	// Instantiate the Unit Under Test (UUT)
 	mips_datapath uut (
@@ -42,13 +40,7 @@ module datapath_testbench;
 		.Error(Error), 
 		.instr(instr), 
 		.PC_out(PC_out), 
-		.state(state),
-		.MDR_out(MDR_out),
-		.A_out(A_out),
-		.B_out(B_out),
-		.ALU_out(ALU_out),
-		.ALUout_out(ALUout_out),
-		.mem_addr0(mem_addr0)
+		.state(state)
 	);
 
 	initial begin

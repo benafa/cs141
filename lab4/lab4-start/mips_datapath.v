@@ -9,19 +9,19 @@
 //
 //
 //////////////////////////////////////////////////////////////////////////////////
-module mips_datapath(clk, rst, Error, instr, PC_out, state, MDR_out, A_out, B_out, ALU_out, ALUout_out, mem_addr0, mem_wr_ena0, mem_wr_data0);
+module mips_datapath(clk, rst, Error, instr, PC_out, state);
 
 	parameter N = 32;
 
 	//inputs and outputs
 	input wire clk, rst;
 	output wire Error;
-	output wire mem_wr_ena0;
-	output wire [31:0]  mem_wr_data0;
+	wire mem_wr_ena0;
+	wire [31:0]  mem_wr_data0;
 
 	//memory buses
 	wire [N-1:0] mem_rd_addr0, mem_wr_addr1, mem_rd_addr1, mem_wr_data1, mem_addr1;
-	output wire [N-1:0] mem_addr0;
+	wire [N-1:0] mem_addr0;
 	wire [N-1:0] mem_rd_data0, mem_rd_data1;
 	wire mem_wr_ena1;
 	//not using second bus
@@ -30,7 +30,7 @@ module mips_datapath(clk, rst, Error, instr, PC_out, state, MDR_out, A_out, B_ou
 	//mips core outputs
 	output wire [31:0] instr;
 	output wire [31:0] PC_out;
-	output wire [31:0] MDR_out, A_out, B_out, ALU_out, ALUout_out;
+	wire [31:0] MDR_out, A_out, B_out, ALU_out, ALUout_out;
 
 	//mips control outputs
 	wire PCWriteCond, PCWrite, IorD, IRWrite, ALUSrcA, RegWrite, EQorNE;
