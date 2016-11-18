@@ -1,0 +1,124 @@
+TESTING METHODOLOGY
+*******************
+
+The approach we took to testing this part of the lab is to store the results of each instruction type in consecutive registers in the register file, and then compare the final values of those registers to the values we expected to be there if it was working properly. Here are both [1] the machine instrcutions that we wrote for our tests and [2] the assembly code that resulted from the achine code after putting it through our assembler:
+
+[1]
+STEP1:
+    addi    $s0     $zero    7      # $r1 = 0x00000007
+    addi    $s1     $zero    6      # $r2 = 0x00000006
+    slt     $t0     $s0     $s1     # 7 > 6 --> $t0 = 0
+    beq     $t0     $zero   ELSE1   # $t0 == 0 --> ELSE
+    add     $s0     $s0     $s1     
+    j       STEP2
+ELSE1:
+    sub     $s0     $s0     $s1     # s0 = 7 + 6 = 13
+STEP2:
+    addi    $s0     $zero    7      # $r1 = 0x00000007
+    addi    $s1     $zero    6      # $r2 = 0x00000006
+    slt     $t0     $s0     $s1     # 7 < 6 --> $t0 = 1
+    bne     $t0     $zero   ELSE2   # $t0 != 0 --> ELSE 
+    add     $s0     $s0     $s1     # s0 = 6 + 7 = 0xFFFFFFFF
+    j       STEP3
+ELSE2:
+    sub     $s0     $s0     $s1     
+STEP3:  
+    addi    $sp, $sp, -24
+    addi    $t0, $zero, 3
+    sw      $t0, 0($sp)
+    addi    $t0, $zero, 4
+    sw      $t0, 4($sp)
+    addi    $t0, $zero, 2
+    sw      $t0, 8($sp)
+    addi    $t0, $zero, 1
+    sw      $t0, 12($sp)
+    addi    $t0, $zero, 0
+    sw      $t0, 16($sp)
+    addi    $t0, $zero, 0
+    sw      $t0, 20($sp)
+    addi    $s0, $sp, 0
+    addi    $s1, $sp, 8
+    addi    $s2, $sp, 16
+    addi    $s3, $sero  4
+    addi    $s4     $zero   0       # i = 0 = $s4
+    addi    $t0     $zero   10      # $t1 = 10
+LOOP:
+    slt     $t1     $s4     $t0     # i < 10 --> $t1 = 1
+    beq     $t1     $zero   STEP4    # $t1 == 0 --> DONE
+    sll     $t1     $s4     2       # t2 = i*4 (byte offset)
+    add     $t2     $t1     $s0     # address of a[i]
+    add     $t3     $t1     $s1     # address of b[i]     
+    add     $t4     $t1     $s2     # address of c[i]
+    lw      $t2     0($t2)          # $t2 = a[i]        
+    lw      $t3     0($t3)          # $t3 = b[i]
+    mul     $t1     $t3     $s3     # $t1 = s * b[i]
+    add     $t2     $t2     $t1     # $t2 = $t2 + $t1 = a[i] + s*b[i]
+    sw      $t2     0($t4)          # c[i] = $t2 = a[i] + s*b[i]
+    addi    $s4     $s4     1       # ++i
+    j       LOOP                    # Repeat loop
+
+STEP4:
+    ABS:
+        slt     $t0     $a0       $zero     # a < 0 --> $t0 = 1
+        beq     $t0     $a0       L1        # $t0 == 0 --> L1
+        sub     $v0     $zero     $a0       # $v0 = -a
+        jr      $ra
+    
+    L1:
+        add     $v0     $zero     $a0       # $v0 = a
+        jr      $ra
+
+    addi     $a0     $zero   -5
+    jal      ABS     
+
+
+addi $r1 $r0 7		//$r1 = 0x00000007
+andi $r2 $r1 6		//$r2 = 0x00000006
+andi $r3 $r1 9		//$r3 = 0x00000001
+ori  $r4 $r1 16		//$r4 = 0x00000017
+xori $r5 $r1 2		//$r5 = 0x00000005
+slti $r6 $r1 8		//$r6 = 0x00000001
+slti $r7 $r1 6		//$r6 = 0x00000000
+addi $r8 $r0 4		//$r8 = 0x00000004 (offset)
+sw $r4, 16($r0)		//17 stored in location 64 in memory
+sw $r2, 16($r8)		//6 stored in location 72 in memory
+lw $r9, 16($r0)		//$r9 = 0x00000017
+lw $r10, 16($r8)	//$r10 = 0x00000006
+
+[2]
+
+20010007
+30220006
+30230009
+34240010
+38250002
+28260008
+28270006
+20080004
+ac040190
+ad020190
+8c090190
+8d0a0190
+
+From these test instructions, we would expect the following results:
+
+Testing andi, ori, xori, slti, addi:
+- The values of $r1 and $r8 test addi, and should be 32'h7 and 32'h4 respectively.
+- The values of $r2 and $r3 test andi, and should be 32'h6 and 32'h1 respectively because their operations are bitwise AND of the following:
+	$r2 = 32'b00000000000000000000000000000111 & 32'b00000000000000000000000000000110
+	$r3 = 32'b00000000000000000000000000000111 & 32'b00000000000000000000000000001001
+- The value of $r4 tests ori, and should be 32'h17 because it is the result of the following bitwise OR operation:
+	$r4 = 32'b00000000000000000000000000000111 | 32'b00000000000000000000000000010000
+
+- The value of $r5 tests xori, and should be 32'h5 because it is the result of the following bitwise XOR operation:
+	$r5 = 32'b00000000000000000000000000000111 | 32'b00000000000000000000000000000010
+- The value of $r6 tests slti, and should be 32'h1 because the value stored in $r1 (which is 7) is less than 8.
+- The value of $r7 tests slti, and should be 32'h0 because the value stored in $r1 (which is 7) is not less than 6.
+
+Testing LW and SW:
+- The last 4 instructions in the test file are testing the functionality of LW and SW. The two SW instructions store two values into consecutive locations in data memory, and the two LW instructions retrieve those values and store them into the register file.
+- We know that SW and LW are working if the values in %r9 and $r10 are 32'h17 and 32'h6, respectively.
+
+RESULTS
+
+By analyzing the waveforms and comparing the register values that we obtained from our simulation to those that we expected to find, we conclude that our I-type instructions are all working properly. We cannot think of any edge cases we have neglected in this multi-cycle datapath. If we were testing a pipelined datapath, our testing would have had to have been much more thorough.
